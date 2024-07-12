@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,6 +36,7 @@
           });
       </script>
   <?php
+      unset($_SESSION['mensaje']);
   }
   ?>
 
@@ -44,7 +45,7 @@
   </center>
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../public/templeates/AdminLTE-3.2.0/index2.html" class="h1"><b>Sistema de</b> VENTAS</a>
+      <a href="../login/login.php" class="h1"><b>Sistema de</b> VENTAS</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Ingrese su información</p>

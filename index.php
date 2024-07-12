@@ -9,6 +9,15 @@ include ('app/controllers/usuarios/listado_de_usuarios.php');
 include ('app/controllers/roles/listado_de_roles.php');
 ?>
 
+<script>
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Se ingreso de forma correcta al sistema",
+        showConfirmButton: false,
+        timer: 2500
+    });
+</script>
 
 <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
