@@ -1,19 +1,25 @@
 <?php
 
+// Incluir el archivo de configuración
 include ('../app/config.php');
+
+// Incluir el archivo de sesión
 include ('../layout/sesion.php');
 
+// Incluir la primera parte del layout
 include ('../layout/parte1.php');
 
+// Incluir el controlador para actualizar la información del usuario
 include ('../app/controllers/usuarios/update_usuario.php');
 
+// Incluir el controlador para listar los roles disponibles
 include ('../app/controllers/roles/listado_de_roles.php');
 
 ?>
 
-<!-- Content Wrapper. Contains page content -->
+<!-- Contenedor de contenido. Contiene el contenido de la página -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    <!-- Encabezado de contenido (Encabezado de la página) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -25,7 +31,7 @@ include ('../app/controllers/roles/listado_de_roles.php');
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
+    <!-- Contenido principal -->
     <div class="content">
         <div class="container-fluid">
 
@@ -36,54 +42,55 @@ include ('../app/controllers/roles/listado_de_roles.php');
                             <h3 class="card-title">Actualice la información del usuario</h3>
 
                             <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
                                 </button>
                             </div>
                             <!-- /.card-tools -->
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body">
+                        <div class="card-body" style="display: block;">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="form-group">
-                                        <form action="../app/controllers/usuarios/update.php" method="post">
-                                            <input type="text" name="id_usuario" value=" <?php echo $id_usuario_get; ?>" hidden>
-                                            <div class="form-group">
-                                                <label for="">Nombres</label>
-                                                <input type="text" name="nombres" class="form-control" value="<?php echo $nombres ?>" placeholder="Escriba el nombre del nuevo usuario..." required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="">Email</label>
-                                                <input type="email" name="email" class="form-control" value="<?php echo $email ?>" placeholder="Escriba el email del nuevo usuario..." required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="">Rol del usuario</label>
-                                                <select name="rol" id="" class="form-control">
+                                    <!-- Formulario para actualizar información del usuario -->
+                                    <form action="../app/controllers/usuarios/update.php" method="post">
+                                        <input type="text" name="id_usuario" value="<?php echo $id_usuario_get; ?>" hidden>
+                                        <div class="form-group">
+                                            <label for="">Nombres</label>
+                                            <input type="text" name="nombres" class="form-control" value="<?php echo $nombres; ?>" placeholder="Escriba el nombre del nuevo usuario..." required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Email</label>
+                                            <input type="email" name="email" class="form-control" value="<?php echo $email; ?>" placeholder="Escriba el email del nuevo usuario..." required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Rol del usuario</label>
+                                            <select name="rol" id="" class="form-control">
+                                                <?php
+                                                foreach ($roles_datos as $roles_dato) {
+                                                    $rol_table = $roles_dato['rol'];
+                                                    $id_rol = $roles_dato['id_rol']; ?>
+                                                    <option value="<?php echo $id_rol; ?>" <?php if ($rol_table == $rol) { ?> selected="selected" <?php } ?>>
+                                                        <?php echo $rol_table; ?>
+                                                    </option>
                                                     <?php
-                                                    foreach ($roles_datos as $roles_dato) {
-                                                        $rol_table = $roles_dato ['rol'];
-                                                        $id_rol = $roles_dato ['id_rol']; ?>
-                                                        <option value="<?php echo $id_rol;?>"<?php if ($rol_table == $rol){ ?> selected = "selected" <?php } ?> >
-                                                            <?php echo $rol_table; ?>
-                                                        </option>
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="">Contraseña</label>
-                                                <input type="text" name="password_user" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="">Repita la contraseña</label>
-                                                <input type="text" name="password_repeat" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <a href="index.php" class="btn btn-secondary">Cancelar</a>
-                                                <button type="submit" class="btn btn-success">Actualizar</button>
-                                            </div>
-                                        </form>
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Contraseña</label>
+                                            <input type="text" name="password_user" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Repita la contraseña</label>
+                                            <input type="text" name="password_repeat" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <a href="index.php" class="btn btn-secondary">Cancelar</a>
+                                            <button type="submit" class="btn btn-success">Actualizar</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -99,10 +106,6 @@ include ('../app/controllers/roles/listado_de_roles.php');
 </div>
 <!-- /.content-wrapper -->
 
+<!-- Incluir mensajes y la segunda parte del layout -->
 <?php include ('../layout/mensajes.php');?>
 <?php include ('../layout/parte2.php');?>
-
-
-
-
-

@@ -1,17 +1,22 @@
 <?php
 
+// Incluir el archivo de configuración
 include ('../app/config.php');
+
+// Incluir el archivo de sesión
 include ('../layout/sesion.php');
 
+// Incluir la primera parte del layout
 include ('../layout/parte1.php');
 
-include ('../app/controllers/usuarios/show_usuario.php')
+// Incluir el controlador para mostrar el usuario
+include ('../app/controllers/usuarios/show_usuario.php');
 
 ?>
 
-<!-- Content Wrapper. Contains page content -->
+<!-- Contenedor de contenido. Contiene el contenido de la página -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    <!-- Encabezado de contenido (Encabezado de la página) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -23,28 +28,28 @@ include ('../app/controllers/usuarios/show_usuario.php')
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
+    <!-- Contenido principal -->
     <div class="content">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-md-5">
                     <div class="card card-danger">
                         <div class="card-header">
-                            <h3 class="card-title">¿Esta seguro de eliminar al usuario?</h3>
-
+                            <h3 class="card-title">¿Está seguro de eliminar al usuario?</h3>
                             <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
                                 </button>
                             </div>
                             <!-- /.card-tools -->
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body">
+                        <div class="card-body" style="display: block;">
                             <div class="row">
                                 <div class="col-md-12">
+                                    <!-- Formulario para eliminar un usuario -->
                                     <form action="../app/controllers/usuarios/delete_usuarios.php" method="post">
-                                        <input type="text" name="id_usuario" value="<?php echo $id_usuario_get; ?>"hidden>
+                                        <input type="text" name="id_usuario" value="<?php echo $id_usuario_get; ?>" hidden>
                                         <div class="form-group">
                                             <label for="">Nombres</label>
                                             <input type="text" name="nombres" class="form-control" value="<?php echo $nombres;?>" disabled>
@@ -70,7 +75,6 @@ include ('../app/controllers/usuarios/show_usuario.php')
                     </div>
                 </div>
             </div>
-
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
@@ -78,11 +82,8 @@ include ('../app/controllers/usuarios/show_usuario.php')
 </div>
 <!-- /.content-wrapper -->
 
-<?php include ('../layout/mensajes.php');?>
-<?php include ('../layout/parte2.php');?>
+<!-- Incluir el archivo de mensajes -->
+<?php include ('../layout/mensajes.php'); ?>
 
-
-
-
-
-
+<!-- Incluir la segunda parte del layout -->
+<?php include ('../layout/parte2.php'); ?>

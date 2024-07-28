@@ -1,32 +1,39 @@
 <?php
 
+// Incluir el archivo de configuración
 include ('../app/config.php');
+
+// Incluir el archivo de sesión
 include ('../layout/sesion.php');
 
+// Incluir la primera parte del layout
 include ('../layout/parte1.php');
 
+// Incluir el archivo que maneja la actualización de roles
 include ('../app/controllers/roles/update_roles.php');
 
+// Verificar si hay un mensaje en la sesión
 if (isset($_SESSION["mensaje"])) {
     $respuesta = $_SESSION["mensaje"]; ?>
     <script>
         Swal.fire({
             position: "top-end",
             icon: "error",
-            title: "<?php echo $respuesta;?>",
+            title: "<?php echo $respuesta; ?>",
             showConfirmButton: false,
             timer: 2500
         });
     </script>
     <?php
+    // Limpiar los mensajes de la sesión después de mostrarlos
     unset($_SESSION["mensaje"]);
     unset($_SESSION["icono"]);
 }
 ?>
 
-<!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contiene el contenido de la página -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    <!-- Content Header (Encabezado de la página) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -38,7 +45,7 @@ if (isset($_SESSION["mensaje"])) {
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
+    <!-- Main content (Contenido principal) -->
     <div class="content">
         <div class="container-fluid">
 
@@ -49,7 +56,8 @@ if (isset($_SESSION["mensaje"])) {
                             <h3 class="card-title">Edité la información del rol</h3>
 
                             <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
                                 </button>
                             </div>
                             <!-- /.card-tools -->
@@ -59,11 +67,12 @@ if (isset($_SESSION["mensaje"])) {
                             <div class="row">
                                 <div class="col-md-12">
                                     <form action="../app/controllers/roles/update.php" method="post">
+                                        <!-- Campo oculto para el ID del rol -->
                                         <div class="form-group">
                                             <input type="text" name="id_rol" value="<?php echo $id_rol_get; ?>" hidden>
                                             <label for="">Nombre del rol</label>
                                             <input type="text" name="rol" class="form-control"
-                                            placeholder="Escriba el nuevo rol..." value="<?php echo $rol;?>" required>
+                                                   placeholder="Escriba el nuevo rol..." value="<?php echo $rol;?>" required>
                                         </div>
                                         <hr>
                                         <div class="form-group">
@@ -87,9 +96,3 @@ if (isset($_SESSION["mensaje"])) {
 <!-- /.content-wrapper -->
 
 <?php include ('../layout/parte2.php');?>
-
-
-
-
-
-

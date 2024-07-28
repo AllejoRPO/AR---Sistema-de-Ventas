@@ -1,23 +1,27 @@
-<!-- Main Footer -->
+<!--
+Esta es una página de plantilla de la parte 2
+-->
+
+<!-- Pie de página principal -->
 <footer class="main-footer">
-    <!-- To the right -->
+    <!-- A la derecha -->
     <div class="float-right d-none d-sm-inline">
-        Anything you want
+        Lo que quieras
     </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2024 <a href="https://adminlte.io">AlejandroRPO</a>.</strong> All rights reserved.
+    <!-- Por defecto a la izquierda -->
+    <strong>Copyright &copy; 2024 <a href="https://www.instagram.com/alejo_rpo_/">Alejandro_Rpo</a>.</strong> Todos los derechos reservados.
 </footer>
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
+<!-- SCRIPTS REQUERIDOS -->
 
 <!-- Bootstrap 4 -->
 <script src="<?php echo $URL; ?>/public/templeates/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo $URL; ?>/public/templeates/AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
 
-<!-- DataTables  & Plugins -->
+<!-- DataTables & Plugins -->
 <script src="<?php echo $URL; ?>/public/templeates/AdminLTE-3.2.0/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo $URL; ?>/public/templeates/AdminLTE-3.2.0/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="<?php echo $URL; ?>/public/templeates/AdminLTE-3.2.0/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>

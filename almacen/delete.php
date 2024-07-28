@@ -1,13 +1,12 @@
 <?php
 
-// Incluir archivo de configuración y otros archivos necesarios
+// Incluir archivos de configuración y otros necesarios
 include ('../app/config.php');
 include ('../layout/sesion.php');
 include ('../layout/parte1.php');
 
-// Incluir los controladores para obtener datos necesarios
-include ('../app/controllers/almacen/listado_de_productos.php');
-include ('../app/controllers/categorias/listado_de_categorias.php');
+// Incluir el controlador para cargar datos del producto
+include ('../app/controllers/almacen/cargar_producto.php');
 
 // Mostrar mensaje de sesión, si existe
 if (isset($_SESSION["mensaje"])) {
@@ -34,7 +33,7 @@ if (isset($_SESSION["mensaje"])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="m-0">Registro de un nuevo producto</h1>
+                    <h1 class="m-0">Datos del producto <?php echo $nombre; ?> a eliminar</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -47,9 +46,9 @@ if (isset($_SESSION["mensaje"])) {
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card card-primary">
+                    <div class="card card-danger">
                         <div class="card-header">
-                            <h3 class="card-title">Registre la información del nuevo producto</h3>
+                            <h3 class="card-title">¿Está seguro de eliminar este producto?</h3>
 
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -62,30 +61,18 @@ if (isset($_SESSION["mensaje"])) {
                         <div class="card-body" style="display: block;">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form action="../app/controllers/almacen/create.php" method="post" enctype="multipart/form-data">
+                                    <form action="../app/controllers/almacen/delete.php" method="post">
+                                        <!-- Campo oculto para el ID del producto -->
+                                        <input type="text" name="id_producto" value="<?php echo $id_producto_get; ?>" hidden>
 
                                         <div class="row">
                                             <div class="col-md-9">
-
                                                 <div class="row">
                                                     <!-- Código del producto -->
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="">Código:</label>
-                                                            <?php
-                                                            // Función para agregar ceros al código del producto
-                                                            function ceros($numero){
-                                                                $cantidad_ceros = 5;
-                                                                $aux = str_pad($numero, $cantidad_ceros, '0', STR_PAD_LEFT);
-                                                                return $aux;
-                                                            }
-
-                                                            // Contador para el código del producto
-                                                            $contador_de_id_productos = count($productos_datos) + 1;
-                                                            ?>
-                                                            <input type="text" class="form-control"
-                                                                   value="<?php echo "P-".ceros($contador_de_id_productos) ?>" disabled>
-                                                            <input type="text" name="codigo" value="<?php echo "P-".ceros($contador_de_id_productos) ?>" hidden>
+                                                            <input type="text" class="form-control" value="<?php echo $codigo; ?>" disabled>
                                                         </div>
                                                     </div>
 
@@ -94,17 +81,7 @@ if (isset($_SESSION["mensaje"])) {
                                                         <div class="form-group">
                                                             <label for="">Categoría:</label>
                                                             <div style="display: flex">
-                                                                <select name="id_categoria" class="form-control" required>
-                                                                    <?php
-                                                                    foreach ($categorias_datos as $categoria_dato){ ?>
-                                                                        <option value="<?php echo $categoria_dato['id_categoria'];?>">
-                                                                            <?php echo $categoria_dato['nombre_categoria'];?>
-                                                                        </option>
-                                                                        <?php
-                                                                    }
-                                                                    ?>
-                                                                </select>
-                                                                <a href="<?php echo $URL; ?>/categorias" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+                                                                <input type="text" class="form-control" value="<?php echo $nombre_categoria; ?>" disabled>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -113,18 +90,17 @@ if (isset($_SESSION["mensaje"])) {
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="">Nombre del producto:</label>
-                                                            <input type="text" name="nombre" class="form-control" required>
+                                                            <input type="text" name="nombre" value="<?php echo $nombre; ?>" class="form-control" disabled>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
-                                                    <!-- Usuario que está creando el producto -->
+                                                    <!-- Usuario que creó el producto -->
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="">Usuario:</label>
-                                                            <input type="text" class="form-control" value="<?php echo $email_sesion; ?>" disabled>
-                                                            <input type="text" name="id_usuario" value="<?php echo $id_usuario_sesion; ?>" hidden>
+                                                            <input type="text" class="form-control" value="<?php echo $email; ?>" disabled>
                                                         </div>
                                                     </div>
 
@@ -132,7 +108,7 @@ if (isset($_SESSION["mensaje"])) {
                                                     <div class="col-md-8">
                                                         <div class="form-group">
                                                             <label for="">Descripción del producto:</label>
-                                                            <textarea name="descripcion" id="" cols="30" rows="1" class="form-control"></textarea>
+                                                            <textarea name="descripcion" id="" cols="30" rows="1" class="form-control" disabled><?php echo $descripcion; ?></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -142,37 +118,37 @@ if (isset($_SESSION["mensaje"])) {
                                                     <div class="col-md-2">
                                                         <div class="form-group">
                                                             <label for="">Stock:</label>
-                                                            <input type="number" name="stock" class="form-control" required>
+                                                            <input type="number" name="stock" value="<?php echo $stock; ?>" class="form-control" disabled>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="form-group">
                                                             <label for="">Stock mínimo:</label>
-                                                            <input type="number" name="stock_minimo" class="form-control">
+                                                            <input type="number" name="stock_minimo" value="<?php echo $stock_minimo; ?>" class="form-control" disabled>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="form-group">
                                                             <label for="">Stock máximo:</label>
-                                                            <input type="number" name="stock_maximo" class="form-control">
+                                                            <input type="number" name="stock_maximo" value="<?php echo $stock_maximo; ?>" class="form-control" disabled>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="form-group">
                                                             <label for="">Precio compra:</label>
-                                                            <input type="number" name="precio_compra" class="form-control" required>
+                                                            <input type="number" name="precio_compra" value="<?php echo $precio_compra; ?>" class="form-control" disabled>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="form-group">
                                                             <label for="">Precio venta:</label>
-                                                            <input type="number" name="precio_venta" class="form-control" required>
+                                                            <input type="number" name="precio_venta" value="<?php echo $precio_venta; ?>" class="form-control" disabled>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="form-group">
                                                             <label for="">Fecha ingreso:</label>
-                                                            <input type="date" name="fecha_ingreso" class="form-control" required>
+                                                            <input type="date" name="fecha_ingreso" value="<?php echo $fecha_ingreso; ?>" class="form-control" disabled>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -181,29 +157,10 @@ if (isset($_SESSION["mensaje"])) {
                                             <!-- Imagen del producto -->
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="">Imagen del producto</label>
-                                                    <input type="file" name="image" class="form-control" id="file">
-                                                    <br>
-                                                    <output id="list"></output>
-                                                    <script>
-                                                        // Función para mostrar la imagen seleccionada
-                                                        function archivo(evt) {
-                                                            var files = evt.target.files; // FileList object
-                                                            for (var i = 0, f; f = files[i]; i++) {
-                                                                if (!f.type.match('image.*')) {
-                                                                    continue;
-                                                                }
-                                                                var reader = new FileReader();
-                                                                reader.onload = (function (theFile) {
-                                                                    return function (e) {
-                                                                        document.getElementById("list").innerHTML = ['<img class="thumb thumbnail" src="', e.target.result, '" width="100%" title="', escape(theFile.name), '"/>'].join('');
-                                                                    };
-                                                                })(f);
-                                                                reader.readAsDataURL(f);
-                                                            }
-                                                        }
-                                                        document.getElementById('file').addEventListener('change', archivo, false);
-                                                    </script>
+                                                    <label for="">Imagen del producto:</label>
+                                                    <center>
+                                                        <img src="<?php echo $URL."/almacen/img_productos/".$imagen;?>" width="100%" alt="">
+                                                    </center>
                                                 </div>
                                             </div>
                                         </div>
@@ -211,7 +168,7 @@ if (isset($_SESSION["mensaje"])) {
                                         <hr>
                                         <div class="form-group">
                                             <a href="index.php" class="btn btn-secondary">Cancelar</a>
-                                            <button type="submit" class="btn btn-primary">Guardar producto</button>
+                                            <button class="btn btn-danger"><i class="fa fa-trash"> Borrar producto</i></button>
                                         </div>
                                     </form>
                                 </div>

@@ -1,12 +1,18 @@
 <?php
 
+// Incluir el archivo de configuración
 include ('../app/config.php');
+
+// Incluir el archivo de sesión
 include ('../layout/sesion.php');
 
+// Incluir la primera parte del layout
 include ('../layout/parte1.php');
 
+// Incluir el listado de roles
 include ('../app/controllers/roles/listado_de_roles.php');
 
+// Mostrar mensaje de sesión si existe
 if (isset($_SESSION["mensaje"])) {
     $respuesta = $_SESSION["mensaje"]; ?>
     <script>
@@ -18,15 +24,16 @@ if (isset($_SESSION["mensaje"])) {
             timer: 2500
         });
     </script>
-<?php
+    <?php
+    // Eliminar los mensajes de sesión después de mostrarlos
     unset($_SESSION["mensaje"]);
     unset($_SESSION["icono"]);
 }
 ?>
 
-<!-- Content Wrapper. Contains page content -->
+<!-- Contenedor de contenido. Contiene el contenido de la página -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    <!-- Encabezado de contenido (Encabezado de la página) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -38,26 +45,26 @@ if (isset($_SESSION["mensaje"])) {
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
+    <!-- Contenido principal -->
     <div class="content">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-md-5">
                     <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Registre la información del nuevo usuario</h3>
-
                             <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
                                 </button>
                             </div>
                             <!-- /.card-tools -->
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body">
+                        <div class="card-body" style="display: block;">
                             <div class="row">
                                 <div class="col-md-12">
+                                    <!-- Formulario para crear un nuevo usuario -->
                                     <form action="../app/controllers/usuarios/create.php" method="post">
                                         <div class="form-group">
                                             <label for="">Nombres</label>
@@ -71,9 +78,10 @@ if (isset($_SESSION["mensaje"])) {
                                             <label for="">Rol del usuario</label>
                                             <select name="rol" id="" class="form-control">
                                                 <?php
+                                                // Listar los roles disponibles
                                                 foreach ($roles_datos as $roles_dato){; ?>
                                                     <option value="<?php echo $roles_dato['id_rol'] ?>"><?php echo $roles_dato['rol'] ?></option>
-                                                <?php
+                                                    <?php
                                                 }
                                                 ?>
                                             </select>
@@ -99,7 +107,6 @@ if (isset($_SESSION["mensaje"])) {
                     </div>
                 </div>
             </div>
-
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
@@ -107,8 +114,7 @@ if (isset($_SESSION["mensaje"])) {
 </div>
 <!-- /.content-wrapper -->
 
-<?php include ('../layout/parte2.php');?>
-
-
-
-
+<?php
+// Incluir la segunda parte del layout
+include ('../layout/parte2.php');
+?>
