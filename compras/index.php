@@ -76,6 +76,9 @@ if (isset($_SESSION["mensaje"])) {
                                     <tbody>
                                     <?php
                                     $contador = 0;
+                                    usort($compras_datos, function($a, $b) {
+                                        return $a['nro_compra'] <=> $b['nro_compra'];
+                                    });
                                     foreach ($compras_datos as $compras_dato) {
                                         $id_compra = $compras_dato['id_compra']; ?>
 
@@ -83,7 +86,7 @@ if (isset($_SESSION["mensaje"])) {
                                             <td><?php echo $contador = $contador + 1; ?></td>
                                             <td><?php echo $compras_dato['nro_compra']; ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-outline-info border-transparent" data-toggle="modal"
+                                                <button type="button" class="btn btn-outline-info border-transparent w-100" data-toggle="modal"
                                                         data-target="#modal-producto<?php echo $id_compra; ?>">
                                                     <?php echo $compras_dato['nombre_producto']; ?>
                                                 </button>
@@ -98,10 +101,8 @@ if (isset($_SESSION["mensaje"])) {
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-
                                                                 <div class="row">
                                                                     <div class="col-md-9">
-
                                                                         <div class="row">
                                                                             <div class="col-md-2">
                                                                                 <div class="form-group">
@@ -182,8 +183,8 @@ if (isset($_SESSION["mensaje"])) {
                                                                             <label for="">Imagen del producto</label>
                                                                             <img src="<?php echo $URL."/almacen/img_productos/".$compras_dato['imagen'];?>" width="100%" alt="">
                                                                         </div>
+                                                                    </div>
                                                                 </div>
-
                                                             </div>
                                                         </div>
                                                         <!-- /.modal-content -->
@@ -194,13 +195,13 @@ if (isset($_SESSION["mensaje"])) {
                                             </td>
                                             <td><?php echo $compras_dato['fecha_compra']; ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-outline-info border-transparent" data-toggle="modal"
+                                                <button type="button" class="btn btn-outline-info border-transparent w-100" data-toggle="modal"
                                                         data-target="#modal-proveedor<?php echo $id_compra; ?>">
                                                     <?php echo $compras_dato['nombre_proveedor']; ?>
                                                 </button>
                                                 <!-- Modal para visualizar proveedor en compras -->
                                                 <div class="modal fade" id="modal-proveedor<?php echo $id_compra; ?>">
-                                                    <div class="modal-dialog">
+                                                    <div class="modal-dialog modal-lg">
                                                         <div class="modal-content">
                                                             <div class="modal-header" style="background-color: #0a4c98; color: #ffffff ">
                                                                 <h4 class="modal-title">Datos del proveedor</h4>
@@ -255,11 +256,12 @@ if (isset($_SESSION["mensaje"])) {
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <!-- /.modal-content -->
                                                         </div>
-                                                        <!-- /.modal-dialog -->
+                                                        <!-- /.modal-content -->
                                                     </div>
-                                                    <!-- /.modal -->
+                                                    <!-- /.modal-dialog -->
+                                                </div>
+                                                <!-- /.modal -->
                                             </td>
                                             <td><?php echo $compras_dato['comprobante']; ?></td>
                                             <td><?php echo $compras_dato['nombre_usuario']; ?></td>
@@ -267,10 +269,10 @@ if (isset($_SESSION["mensaje"])) {
                                             <td><?php echo $compras_dato['cantidad']; ?></td>
                                             <td>
                                                 <center>
-                                                    <div class="btn-group">
-                                                        <a href="show.php?id=<?php echo $id_compra; ?>" type="button" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Ver</a>
-                                                        <a href="update.php?id=<?php echo $id_compra; ?>" type="button" class="btn btn-success btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
-                                                        <a href="delete.php?id=<?php echo $id_compra; ?>" type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Borrar</a>
+                                                    <div class="btn-group w-100">
+                                                        <a href="show.php?id=<?php echo $id_compra; ?>" type="button" class="btn btn-info btn-sm "><i class="fa fa-eye"></i> Ver</a>
+                                                        <a href="update.php?id=<?php echo $id_compra; ?>" type="button" class="btn btn-success btn-sm "><i class="fa fa-pencil-alt"></i> Editar</a>
+                                                        <a href="delete.php?id=<?php echo $id_compra; ?>" type="button" class="btn btn-danger btn-sm "><i class="fa fa-trash"></i> Borrar</a>
                                                     </div>
                                                 </center>
                                             </td>
@@ -347,4 +349,3 @@ if (isset($_SESSION["mensaje"])) {
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
 </script>
-

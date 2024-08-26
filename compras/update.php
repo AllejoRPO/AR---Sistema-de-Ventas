@@ -8,7 +8,7 @@ include ('../layout/parte1.php');
 // Incluir los controladores para obtener datos necesarios
 include ('../app/controllers/almacen/listado_de_productos.php');
 include ('../app/controllers/proveedores/listado_de_proveedores.php');
-include ('../app/controllers/compras/listado_de_compras.php');
+include ('../app/controllers/compras/cargar_compra.php');
 
 // Mostrar mensaje de sesión, si existe
 if (isset($_SESSION["mensaje"])) {
@@ -35,7 +35,7 @@ if (isset($_SESSION["mensaje"])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="m-0">Registro de una nueva compra</h1>
+                    <h1 class="m-0">Actualización de la compra</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -50,9 +50,9 @@ if (isset($_SESSION["mensaje"])) {
                 <div class="col-md-9">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card card-primary">
+                            <div class="card card-success">
                                 <div class="card-header">
-                                    <h3 class="card-title">Registre la información de la nueva compra</h3>
+                                    <h3 class="card-title">Actualicé la información de la compra</h3>
 
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -66,7 +66,7 @@ if (isset($_SESSION["mensaje"])) {
                                     <div style="display: flex">
                                         <h5>Datos del producto</h5>
                                         <div style="width: 20px"></div>
-                                        <button type="button" class="btn btn-primary border-transparent" data-toggle="modal"
+                                        <button type="button" class="btn btn-success border-transparent" data-toggle="modal"
                                                 data-target="#modal-buscar_producto">
                                             <i class="fa fa-search"></i>
                                             Buscar producto
@@ -191,21 +191,21 @@ if (isset($_SESSION["mensaje"])) {
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <input type="text" id="id_producto" hidden>
+                                                        <input type="text" value="<?php echo $id_producto_tabla; ?>" id="id_producto" hidden>
                                                         <label for="">Código:</label>
-                                                        <input type="text" class="form-control" id="codigo" disabled>
+                                                        <input type="text" class="form-control" value="<?php echo $codigo; ?>" id="codigo" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="">Categoría:</label>
-                                                        <input type="text" class="form-control" id="categoria" disabled>
+                                                        <input type="text" class="form-control" value="<?php echo $nombre_categoria; ?>" id="categoria" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="">Nombre del producto:</label>
-                                                        <input type="text" name="nombre" class="form-control" id="nombre_producto" disabled>
+                                                        <input type="text" name="nombre" class="form-control" value="<?php echo $nombre_producto; ?>" id="nombre_producto" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -213,13 +213,13 @@ if (isset($_SESSION["mensaje"])) {
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="">Usuario:</label>
-                                                        <input type="text" class="form-control" id="usuario_producto" disabled>
+                                                        <input type="text" class="form-control" value="<?php echo $nombre_usuario; ?>" id="usuario_producto" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="form-group">
                                                         <label for="">Descripción del producto:</label>
-                                                        <textarea name="descripcion" id="descripcion_producto" cols="30" rows="1" class="form-control" disabled></textarea>
+                                                        <textarea name="descripcion" id="descripcion_producto" cols="30" rows="1" class="form-control" disabled><?php echo $descripcion; ?></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -227,37 +227,37 @@ if (isset($_SESSION["mensaje"])) {
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for="">Stock:</label>
-                                                        <input type="number" name="stock" class="form-control" id="stock" style="background-color: #ffcd00" disabled>
+                                                        <input type="number" name="stock" class="form-control" value="<?php echo $stock; ?>" id="stock" style="background-color: #ffcd00" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for="">Stock mínimo:</label>
-                                                        <input type="number" name="stock_minimo" class="form-control" id="stock_minimo" disabled>
+                                                        <input type="number" name="stock_minimo" class="form-control" value="<?php echo $stock_minimo; ?>" id="stock_minimo" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for="">Stock máximo:</label>
-                                                        <input type="number" name="stock_maximo" class="form-control" id="stock_maximo" disabled>
+                                                        <input type="number" name="stock_maximo" class="form-control" value="<?php echo $stock_maximo; ?>" id="stock_maximo" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for="">Precio compra:</label>
-                                                        <input type="number" name="precio_compra" class="form-control" id="precio_compra" disabled>
+                                                        <input type="number" name="precio_compra" class="form-control" value="<?php echo $precio_compra_producto; ?>" id="precio_compra" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for="">Precio venta:</label>
-                                                        <input type="number" name="precio_venta" class="form-control" id="precio_venta" disabled>
+                                                        <input type="number" name="precio_venta" class="form-control" value="<?php echo $precio_venta_producto; ?>" id="precio_venta" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for="">Fecha ingreso:</label>
-                                                        <input type="date" name="fecha_ingreso" class="form-control" style="font-size: 10px" id="fecha_ingreso" disabled>
+                                                        <input type="date" name="fecha_ingreso" class="form-control" style="font-size: 10px" value="<?php echo $fecha_ingreso; ?>" id="fecha_ingreso" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -275,7 +275,7 @@ if (isset($_SESSION["mensaje"])) {
                                     <div style="display: flex">
                                         <h5>Datos del proveedor</h5>
                                         <div style="width: 20px"></div>
-                                        <button type="button" class="btn btn-primary border-transparent" data-toggle="modal"
+                                        <button type="button" class="btn btn-success border-transparent" data-toggle="modal"
                                                 data-target="#modal-buscar_proveedor">
                                             <i class="fa fa-search"></i>
                                             Buscar proveedor
@@ -373,21 +373,21 @@ if (isset($_SESSION["mensaje"])) {
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <input type="text" id="id_proveedor" hidden>
+                                                    <input type="text" id="id_proveedor" value="<?php echo $id_proveedor_tabla; ?>" hidden>
                                                     <label for="">Nombre del proveedor</label>
-                                                    <input type="text" id="nombre_proveedor" class="form-control" disabled>
+                                                    <input type="text" id="nombre_proveedor" class="form-control" value="<?php echo $nombre_proveedor_tabla; ?>" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="">Celular</label>
-                                                    <input type="number" id="celular" class="form-control" disabled>
+                                                    <input type="number" id="celular" class="form-control" value="<?php echo $celular_proveedor; ?>" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="">Teléfono</label>
-                                                    <input type="number" id="telefono" class="form-control" disabled>
+                                                    <input type="number" id="telefono" class="form-control" value="<?php echo $telefono_proveedor; ?>" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -395,19 +395,19 @@ if (isset($_SESSION["mensaje"])) {
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="">Empresa</label>
-                                                    <input type="text" id="empresa" class="form-control" disabled>
+                                                    <input type="text" id="empresa" class="form-control" value="<?php echo $empresa; ?>" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="">Email</label>
-                                                    <input type="email" id="email" class="form-control" disabled>
+                                                    <input type="email" id="email" class="form-control" value="<?php echo $email_proveedor; ?>" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="">Dirección</label>
-                                                    <textarea name="" id="direccion" cols="30" rows="1" class="form-control" disabled></textarea>
+                                                    <textarea name="" id="direccion" cols="30" rows="1" class="form-control" disabled><?php echo $direccion_proveedor; ?></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -419,7 +419,7 @@ if (isset($_SESSION["mensaje"])) {
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card card-outline card-primary">
+                    <div class="card card-outline card-success">
                         <div class="card-header">
                             <h3 class="card-title">Detalle de la compra</h3>
 
@@ -435,39 +435,33 @@ if (isset($_SESSION["mensaje"])) {
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <?php
-                                        $contador_de_compras = 1;
-                                        foreach ($compras_datos as $compras_dato){
-                                            $contador_de_compras = $contador_de_compras + 1;
-                                        }
-                                        ?>
                                         <label for="">Número de la compra</label>
-                                        <input type="text" value="<?php echo $contador_de_compras; ?>" style="text-align: center" class="form-control" disabled>
-                                        <input type="text" value="<?php echo $contador_de_compras; ?>" id="nro_compra" hidden="">
+                                        <input type="text" value="<?php echo $nro_compra; ?>" style="text-align: center" class="form-control" disabled>
+                                        <input type="text" value="<?php echo $nro_compra; ?>" id="nro_compra" hidden="">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Fecha de la compra</label>
-                                        <input type="date" class="form-control" id="fecha_compra">
+                                        <input type="date" class="form-control" value="<?php echo $fecha_compra; ?>" id="fecha_compra">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Comprobante de la compra</label>
-                                        <input type="text" class="form-control" id="comprobante">
+                                        <input type="text" class="form-control" value="<?php echo $comprobante; ?>" id="comprobante">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Precio de la compra</label>
-                                        <input type="text" class="form-control" id="precio_compra_controlador">
+                                        <input type="text" class="form-control" value="<?php echo $precio_compra; ?>" id="precio_compra_controlador">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Stock actual</label>
-                                        <input type="text" id="stock_actual" style="background-color: #FFCD00FF; text-align: center" class="form-control" disabled>
+                                        <input type="text" id="stock_actual" style="background-color: #FFCD00FF; text-align: center" class="form-control" value="<?php echo $stock=$stock-$cantidad; ?>" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -479,34 +473,39 @@ if (isset($_SESSION["mensaje"])) {
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Cantidad de la compra</label>
-                                        <input type="number" id="cantidad_compra"  style="text-align: center" class="form-control">
+                                        <input type="number" id="cantidad_compra"  style="text-align: center" class="form-control" value="<?php echo $cantidad; ?>">
                                     </div>
                                     <script>
                                         $('#cantidad_compra').keyup(function () {
+                                            sumacantidades();
+                                        });
+                                        sumacantidades();
+                                        function sumacantidades (){
                                             //alert('estamos presionando el input');
                                             var stock_actual = $('#stock_actual').val();
                                             var stock_compra = $('#cantidad_compra').val();
 
                                             var total = parseInt(stock_actual) + parseInt(stock_compra);
                                             $('#stock_total').val(total);
-                                        });
+                                        }
                                     </script>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Usuario</label>
-                                        <input type="text" class="form-control" value="<?php echo $email_sesion; ?>" disabled>
+                                        <input type="text" class="form-control" value="<?php echo $nombre_usuario; ?>" disabled>
                                     </div>
                                 </div>
                             </div>
                             <hr>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <button class="btn btn-primary btn-block" id="btn_guardar_compra">Guardar compra</button>
+                                    <button class="btn btn-success btn-block" id="btn_actualizar_compra">Actualizar compra</button>
                                 </div>
                             </div>
                             <script>
-                                $('#btn_guardar_compra').click(function () {
+                                $('#btn_actualizar_compra').click(function () {
+                                    var id_compra = <?php echo $id_compra; ?>;
                                     var id_producto = $('#id_producto').val();
                                     var nro_compra = $('#nro_compra').val();
                                     var fecha_compra = $('#fecha_compra').val();
@@ -534,8 +533,9 @@ if (isset($_SESSION["mensaje"])) {
                                         alert("Debe de llenar todos los campos");
                                     }
                                     else{
-                                        var url = "../app/controllers/compras/create.php";
+                                        var url = "../app/controllers/compras/update.php";
                                         $.get(url, {
+                                            id_compra: id_compra,
                                             id_producto: id_producto,
                                             nro_compra: nro_compra,
                                             fecha_compra: fecha_compra,
@@ -546,7 +546,7 @@ if (isset($_SESSION["mensaje"])) {
                                             cantidad_compra: cantidad_compra,
                                             stock_total: stock_total
                                         }, function (datos) {
-                                            $('#respuesta').html(datos);
+                                            $('#respuesta_update').html(datos);
                                         });
                                     }
                                 });
@@ -556,7 +556,7 @@ if (isset($_SESSION["mensaje"])) {
                     </div>
                 </div>
 
-                <div id="respuesta"></div>
+                <div id="respuesta_update"></div>
 
             </div>
 
@@ -652,4 +652,5 @@ if (isset($_SESSION["mensaje"])) {
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
 </script>
+
 

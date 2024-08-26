@@ -39,6 +39,7 @@
             });
         </script>
         <?php
+        // Eliminar el mensaje de la sesión después de mostrarlo
         unset($_SESSION['mensaje']);
     }
     ?>

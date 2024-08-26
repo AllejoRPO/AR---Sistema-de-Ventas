@@ -70,7 +70,7 @@ if (isset($_SESSION["mensaje"])) {
                                         <th><center>Stock</center></th>
                                         <th><center>Precio compra</center></th>
                                         <th><center>Precio venta</center></th>
-                                        <th><center>Fecha compra</center></th>
+                                        <th><center>Fecha registro</center></th>
                                         <th><center>Usuario</center></th>
                                         <th><center>Acciones</center></th>
                                     </tr>
@@ -90,7 +90,22 @@ if (isset($_SESSION["mensaje"])) {
                                             </td>
                                             <td><?php echo $productos_dato['nombre']; ?></td>
                                             <td><?php echo $productos_dato['descripcion']; ?></td>
-                                            <td><?php echo $productos_dato['stock']; ?></td>
+                                            <?php
+                                            $stock_actual = $productos_dato['stock'];
+                                            $stock_minimo = $productos_dato['stock_minimo'];
+                                            $stock_maximo = $productos_dato['stock_maximo'];
+                                            if ($stock_actual < $stock_minimo) { ?>
+                                                <td style="background-color: #d37f7f"><center><?php echo $productos_dato['stock']; ?></center></td>
+                                            <?php
+                                            }
+                                            else if($stock_actual > $stock_maximo){ ?>
+                                                <td style="background-color: #eada53"><center><?php echo $productos_dato['stock']; ?></center></td>
+                                            <?php
+                                            }else{ ?>
+                                                <td style="background-color: #71da89"><center><?php echo $productos_dato['stock']; ?></center></td>
+                                            <?php
+                                            }
+                                            ?>
                                             <td><?php echo $productos_dato['precio_compra']; ?></td>
                                             <td><?php echo $productos_dato['precio_venta']; ?></td>
                                             <td><?php echo $productos_dato['fecha_ingreso']; ?></td>
