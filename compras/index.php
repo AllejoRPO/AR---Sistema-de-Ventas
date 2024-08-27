@@ -24,6 +24,7 @@ if (isset($_SESSION["mensaje"])) {
     unset($_SESSION["mensaje"]);
     unset($_SESSION["icono"]);
 }
+// Fin del bloque de mensaje de sesión
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -75,6 +76,7 @@ if (isset($_SESSION["mensaje"])) {
                                     </thead>
                                     <tbody>
                                     <?php
+                                    // Ordenar datos de compras por número de compra
                                     $contador = 0;
                                     usort($compras_datos, function($a, $b) {
                                         return $a['nro_compra'] <=> $b['nro_compra'];

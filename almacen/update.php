@@ -1,13 +1,13 @@
 <?php
 
 // Incluir archivos de configuración y otros necesarios
-include ('../app/config.php');
-include ('../layout/sesion.php');
-include ('../layout/parte1.php');
+include('../app/config.php');
+include('../layout/sesion.php');
+include('../layout/parte1.php');
 
 // Incluir los controladores para cargar categorías y el producto a actualizar
-include ('../app/controllers/categorias/listado_de_categorias.php');
-include ('../app/controllers/almacen/cargar_producto.php');
+include('../app/controllers/categorias/listado_de_categorias.php');
+include('../app/controllers/almacen/cargar_producto.php');
 
 // Mostrar mensaje de sesión, si existe
 if (isset($_SESSION["mensaje"])) {
@@ -16,7 +16,7 @@ if (isset($_SESSION["mensaje"])) {
         Swal.fire({
             position: "top-end",
             icon: "error",
-            title: "<?php echo $respuesta;?>",
+            title: "<?php echo $respuesta; ?>",
             showConfirmButton: false,
             timer: 2500
         });
@@ -47,6 +47,7 @@ if (isset($_SESSION["mensaje"])) {
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-success">
+                        <!-- Card Header -->
                         <div class="card-header">
                             <h3 class="card-title">Actualice la información del producto</h3>
                             <div class="card-tools">
@@ -57,8 +58,11 @@ if (isset($_SESSION["mensaje"])) {
                             <!-- /.card-tools -->
                         </div>
                         <!-- /.card-header -->
+
+                        <!-- Card Body -->
                         <div class="card-body">
                             <form action="../app/controllers/almacen/update.php" method="post" enctype="multipart/form-data">
+                                <!-- Campo oculto para el ID del producto -->
                                 <input type="text" value="<?php echo $id_producto_get; ?>" name="id_producto" hidden>
 
                                 <div class="row">
@@ -83,7 +87,7 @@ if (isset($_SESSION["mensaje"])) {
                                                             <option value="<?php echo $id_categoria; ?>"<?php if ($nombre_categoria_tabla == $nombre_categoria) { ?> selected="selected" <?php } ?>>
                                                                 <?php echo $nombre_categoria_tabla; ?>
                                                             </option>
-                                                            <?php
+                                                        <?php
                                                         }
                                                         ?>
                                                     </select>
@@ -212,4 +216,4 @@ if (isset($_SESSION["mensaje"])) {
 </div>
 <!-- /.content-wrapper -->
 
-<?php include ('../layout/parte2.php');?>
+<?php include('../layout/parte2.php'); ?>

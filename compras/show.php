@@ -30,6 +30,7 @@ if (isset($_SESSION["mensaje"])) {
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+    
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
@@ -46,7 +47,10 @@ if (isset($_SESSION["mensaje"])) {
     <div class="content">
         <div class="container-fluid">
 
+            <!-- Row for main content -->
             <div class="row">
+                
+                <!-- Left Column -->
                 <div class="col-md-9">
                     <div class="row">
                         <div class="col-md-12">
@@ -63,6 +67,7 @@ if (isset($_SESSION["mensaje"])) {
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body" style="display: block;">
+                                    <!-- Product details -->
                                     <div class="row" style="font-size: 12px">
                                         <div class="col-md-9">
                                             <div class="row">
@@ -149,6 +154,7 @@ if (isset($_SESSION["mensaje"])) {
                                         </div>
                                     </div>
                                     <hr>
+                                    <!-- Provider details -->
                                     <div style="display: flex">
                                         <h5>Datos del proveedor</h5>
                                     </div>
@@ -202,6 +208,8 @@ if (isset($_SESSION["mensaje"])) {
                         </div>
                     </div>
                 </div>
+                
+                <!-- Right Column -->
                 <div class="col-md-3">
                     <div class="card card-outline card-primary">
                         <div class="card-header">
@@ -260,7 +268,6 @@ if (isset($_SESSION["mensaje"])) {
                     </div>
                 </div>
             </div>
-
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>

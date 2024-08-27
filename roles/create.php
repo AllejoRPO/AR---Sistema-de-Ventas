@@ -2,12 +2,15 @@
 
 // Incluir el archivo de configuración
 include ('../app/config.php');
+// Fin del bloque de configuración
 
 // Incluir el archivo de sesión
 include ('../layout/sesion.php');
+// Fin del bloque de sesión
 
 // Incluir la primera parte del layout
 include ('../layout/parte1.php');
+// Fin del bloque de layout parte1
 
 // Verificar si hay un mensaje en la sesión
 if (isset($_SESSION["mensaje"])) {
@@ -26,6 +29,8 @@ if (isset($_SESSION["mensaje"])) {
     unset($_SESSION["mensaje"]);
     unset($_SESSION["icono"]);
 }
+// Fin del bloque de mensaje de sesión
+
 ?>
 
 <!-- Contenedor de contenido. Contiene el contenido de la página -->
@@ -45,13 +50,11 @@ if (isset($_SESSION["mensaje"])) {
     <!-- Contenido principal -->
     <div class="content">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-md-5">
                     <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Registre la información del nuevo rol</h3>
-
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                     <i class="fas fa-minus"></i>
@@ -82,7 +85,6 @@ if (isset($_SESSION["mensaje"])) {
                     </div>
                 </div>
             </div>
-
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
@@ -91,4 +93,5 @@ if (isset($_SESSION["mensaje"])) {
 <!-- /.content-wrapper -->
 
 <!-- Incluir la segunda parte del layout -->
-<?php include ('../layout/parte2.php');?>
+<?php include ('../layout/parte2.php'); ?>
+<!-- Fin del bloque de layout parte2 -->

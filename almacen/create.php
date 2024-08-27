@@ -62,6 +62,7 @@ if (isset($_SESSION["mensaje"])) {
                         <div class="card-body" style="display: block;">
                             <div class="row">
                                 <div class="col-md-12">
+                                    <!-- Formulario para registrar un nuevo producto -->
                                     <form action="../app/controllers/almacen/create.php" method="post" enctype="multipart/form-data">
 
                                         <div class="row">

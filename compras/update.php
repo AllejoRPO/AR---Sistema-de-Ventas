@@ -1,16 +1,16 @@
 <?php
 
-// Incluir archivo de configuración y otros archivos necesarios
+// Bloque 1: Incluir archivos de configuración y otros archivos necesarios
 include ('../app/config.php');
 include ('../layout/sesion.php');
 include ('../layout/parte1.php');
 
-// Incluir los controladores para obtener datos necesarios
+// Bloque 2: Incluir controladores para obtener datos necesarios
 include ('../app/controllers/almacen/listado_de_productos.php');
 include ('../app/controllers/proveedores/listado_de_proveedores.php');
 include ('../app/controllers/compras/cargar_compra.php');
 
-// Mostrar mensaje de sesión, si existe
+// Bloque 3: Mostrar mensaje de sesión, si existe
 if (isset($_SESSION["mensaje"])) {
     $respuesta = $_SESSION["mensaje"]; ?>
     <script>
@@ -28,9 +28,9 @@ if (isset($_SESSION["mensaje"])) {
 }
 ?>
 
-<!-- Content Wrapper. Contains page content -->
+<!-- Bloque 4: Contenedor principal del contenido -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    <!-- Bloque 4.1: Encabezado del contenido -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -42,10 +42,11 @@ if (isset($_SESSION["mensaje"])) {
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
+    <!-- Bloque 4.2: Contenido principal -->
     <div class="content">
         <div class="container-fluid">
 
+            <!-- Bloque 4.2.1: Tarjeta de información de la compra -->
             <div class="row">
                 <div class="col-md-9">
                     <div class="row">
@@ -62,6 +63,8 @@ if (isset($_SESSION["mensaje"])) {
                                     <!-- /.card-tools -->
                                 </div>
                                 <!-- /.card-header -->
+
+                                <!-- Bloque 4.2.1.1: Cuerpo de la tarjeta con datos del producto -->
                                 <div class="card-body" style="display: block;">
                                     <div style="display: flex">
                                         <h5>Datos del producto</h5>
@@ -71,6 +74,7 @@ if (isset($_SESSION["mensaje"])) {
                                             <i class="fa fa-search"></i>
                                             Buscar producto
                                         </button>
+                                        
                                         <!-- Modal para buscar productos a comprar -->
                                         <div class="modal fade" id="modal-buscar_producto">
                                             <div class="modal-dialog modal-xl">
@@ -186,6 +190,8 @@ if (isset($_SESSION["mensaje"])) {
                                         </div>
                                     </div>
                                     <hr>
+
+                                    <!-- Bloque 4.2.1.2: Datos del producto -->
                                     <div class="row" style="font-size: 12px">
                                         <div class="col-md-9">
                                             <div class="row">
@@ -272,6 +278,8 @@ if (isset($_SESSION["mensaje"])) {
                                         </div>
                                     </div>
                                     <hr>
+
+                                    <!-- Bloque 4.2.2: Datos del proveedor -->
                                     <div style="display: flex">
                                         <h5>Datos del proveedor</h5>
                                         <div style="width: 20px"></div>
@@ -280,6 +288,7 @@ if (isset($_SESSION["mensaje"])) {
                                             <i class="fa fa-search"></i>
                                             Buscar proveedor
                                         </button>
+
                                         <!-- Modal para buscar proveedores en compras -->
                                         <div class="modal fade" id="modal-buscar_proveedor">
                                             <div class="modal-dialog modal-xl">

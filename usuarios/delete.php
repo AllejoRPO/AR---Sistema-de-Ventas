@@ -2,15 +2,19 @@
 
 // Incluir el archivo de configuración
 include ('../app/config.php');
+// Fin del bloque de configuración
 
 // Incluir el archivo de sesión
 include ('../layout/sesion.php');
+// Fin del bloque de sesión
 
 // Incluir la primera parte del layout
 include ('../layout/parte1.php');
+// Fin del bloque de layout parte1
 
 // Incluir el controlador para mostrar el usuario
 include ('../app/controllers/usuarios/show_usuario.php');
+// Fin del bloque de controlador de usuario
 
 ?>
 
@@ -68,6 +72,7 @@ include ('../app/controllers/usuarios/show_usuario.php');
                                             <button class="btn btn-danger">Eliminar</button>
                                         </div>
                                     </form>
+                                    <!-- Fin del formulario para eliminar un usuario -->
                                 </div>
                             </div>
                         </div>
@@ -84,6 +89,8 @@ include ('../app/controllers/usuarios/show_usuario.php');
 
 <!-- Incluir el archivo de mensajes -->
 <?php include ('../layout/mensajes.php'); ?>
+<!-- Fin del bloque de mensajes -->
 
 <!-- Incluir la segunda parte del layout -->
 <?php include ('../layout/parte2.php'); ?>
+<!-- Fin del bloque de layout parte2 -->

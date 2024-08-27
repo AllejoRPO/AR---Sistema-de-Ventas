@@ -54,19 +54,24 @@ include ('../app/controllers/roles/listado_de_roles.php');
                                 <div class="col-md-12">
                                     <!-- Formulario para actualizar información del usuario -->
                                     <form action="../app/controllers/usuarios/update.php" method="post">
+                                        <!-- Campo oculto para el ID del usuario -->
                                         <input type="text" name="id_usuario" value="<?php echo $id_usuario_get; ?>" hidden>
+                                        <!-- Campo para nombres del usuario -->
                                         <div class="form-group">
                                             <label for="">Nombres</label>
                                             <input type="text" name="nombres" class="form-control" value="<?php echo $nombres; ?>" placeholder="Escriba el nombre del nuevo usuario..." required>
                                         </div>
+                                        <!-- Campo para email del usuario -->
                                         <div class="form-group">
                                             <label for="">Email</label>
                                             <input type="email" name="email" class="form-control" value="<?php echo $email; ?>" placeholder="Escriba el email del nuevo usuario..." required>
                                         </div>
+                                        <!-- Campo para seleccionar el rol del usuario -->
                                         <div class="form-group">
                                             <label for="">Rol del usuario</label>
                                             <select name="rol" id="" class="form-control">
                                                 <?php
+                                                // Iterar sobre los roles disponibles para mostrarlos en el selector
                                                 foreach ($roles_datos as $roles_dato) {
                                                     $rol_table = $roles_dato['rol'];
                                                     $id_rol = $roles_dato['id_rol']; ?>
@@ -78,14 +83,17 @@ include ('../app/controllers/roles/listado_de_roles.php');
                                                 ?>
                                             </select>
                                         </div>
+                                        <!-- Campo para contraseña del usuario -->
                                         <div class="form-group">
                                             <label for="">Contraseña</label>
                                             <input type="text" name="password_user" class="form-control">
                                         </div>
+                                        <!-- Campo para repetir la contraseña -->
                                         <div class="form-group">
                                             <label for="">Repita la contraseña</label>
                                             <input type="text" name="password_repeat" class="form-control">
                                         </div>
+                                        <!-- Botones para cancelar o actualizar -->
                                         <div class="form-group">
                                             <a href="index.php" class="btn btn-secondary">Cancelar</a>
                                             <button type="submit" class="btn btn-success">Actualizar</button>

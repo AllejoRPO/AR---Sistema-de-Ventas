@@ -1,24 +1,26 @@
 <?php
 
+// Inicio del bloque de inclusión de archivos de configuración y sesión
 include('app/config.php'); // Incluye la configuración de la aplicación
-
 include('layout/sesion.php'); // Incluye el archivo de sesión (manejo de sesiones de usuario)
+// Fin del bloque de inclusión de archivos de configuración y sesión
 
+// Inicio del bloque de inclusión del layout y controladores
 include('layout/parte1.php'); // Incluye parte del layout específico (encabezados, menús, etc.)
 
 include('app/controllers/usuarios/listado_de_usuarios.php'); // Incluye el controlador para listar usuarios
-
 include('app/controllers/roles/listado_de_roles.php'); // Incluye el controlador para listar roles
-
-include('app/controllers/categorias/listado_de_categorias.php'); // Incluye el controlador para listar las categprías
-
+include('app/controllers/categorias/listado_de_categorias.php'); // Incluye el controlador para listar las categorías
 include('app/controllers/almacen/listado_de_productos.php'); // Incluye el controlador para listar los productos
-
 include('app/controllers/proveedores/listado_de_proveedores.php'); // Incluye el controlador para listar los proveedores
+include('app/controllers/compras/listado_de_compras.php'); // Incluye el controlador para listar las compras
+// Fin del bloque de inclusión del layout y controladores
 
 ?>
 
 <script>
+    // Inicio del bloque de funciones de JavaScript
+
     // Función para mostrar el mensaje
     function mostrarMensaje() {
         Swal.fire({
@@ -46,11 +48,13 @@ include('app/controllers/proveedores/listado_de_proveedores.php'); // Incluye el
     function cerrarSesion() {
         sessionStorage.removeItem('mensajeMostrado');
     }
+
+    // Fin del bloque de funciones de JavaScript
 </script>
 
-<!-- Content Wrapper. Contiene el contenido de la página -->
+<!-- Inicio del bloque de contenido principal -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+    <!-- Inicio del encabezado del contenido -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -60,9 +64,9 @@ include('app/controllers/proveedores/listado_de_proveedores.php'); // Incluye el
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
+    <!-- Fin del encabezado del contenido -->
 
-    <!-- Main content -->
+    <!-- Inicio del contenido principal -->
     <div class="content">
         <div class="container-fluid">
 
@@ -71,6 +75,7 @@ include('app/controllers/proveedores/listado_de_proveedores.php'); // Incluye el
 
             <div class="row">
 
+                <!-- Inicio del bloque de tarjeta de usuarios -->
                 <div class="col-lg-3 col-6">
                     <!-- small card -->
                     <div class="small-box bg-primary">
@@ -97,7 +102,9 @@ include('app/controllers/proveedores/listado_de_proveedores.php'); // Incluye el
                         </a>
                     </div>
                 </div>
+                <!-- Fin del bloque de tarjeta de usuarios -->
 
+                <!-- Inicio del bloque de tarjeta de roles -->
                 <div class="col-lg-3 col-6">
                     <!-- small card -->
                     <div class="small-box bg-gray">
@@ -124,7 +131,9 @@ include('app/controllers/proveedores/listado_de_proveedores.php'); // Incluye el
                         </a>
                     </div>
                 </div>
+                <!-- Fin del bloque de tarjeta de roles -->
 
+                <!-- Inicio del bloque de tarjeta de categorías -->
                 <div class="col-lg-3 col-6">
                     <!-- small card -->
                     <div class="small-box bg-success">
@@ -151,7 +160,9 @@ include('app/controllers/proveedores/listado_de_proveedores.php'); // Incluye el
                         </a>
                     </div>
                 </div>
+                <!-- Fin del bloque de tarjeta de categorías -->
 
+                <!-- Inicio del bloque de tarjeta de productos -->
                 <div class="col-lg-3 col-6">
                     <!-- small card -->
                     <div class="small-box bg-indigo">
@@ -178,7 +189,9 @@ include('app/controllers/proveedores/listado_de_proveedores.php'); // Incluye el
                         </a>
                     </div>
                 </div>
+                <!-- Fin del bloque de tarjeta de productos -->
 
+                <!-- Inicio del bloque de tarjeta de proveedores -->
                 <div class="col-lg-3 col-6">
                     <!-- small card -->
                     <div class="small-box bg-warning">
@@ -205,13 +218,43 @@ include('app/controllers/proveedores/listado_de_proveedores.php'); // Incluye el
                         </a>
                     </div>
                 </div>
+                <!-- Fin del bloque de tarjeta de proveedores -->
+
+                <!-- Inicio del bloque de tarjeta de compras -->
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-orange">
+                        <div class="inner">
+                            <?php
+                            // Contador de compras
+                            $contador_de_compras = 0;
+                            foreach ($compras_datos as $compras_dato) {
+                                $contador_de_compras = $contador_de_compras + 1;
+                            }
+                            ?>
+                            <h3><?php echo $contador_de_compras; ?></h3>
+                            <p>Compras registradas</p>
+                        </div>
+                        <!-- Enlace para agregar una compra -->
+                        <a href="<?php echo $URL; ?>/compras/create.php">
+                            <div class="icon">
+                                <i class="nav-icon fas fa-shopping-cart"></i>
+                            </div>
+                        </a>
+                        <!-- Enlace para más información -->
+                        <a href="<?php echo $URL; ?>/compras" class="small-box-footer">
+                            Más información <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Fin del bloque de tarjeta de compras -->
 
             </div>
-            <!-- /.row -->
+            <!-- Fin del bloque de tarjetas -->
         </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content -->
+    <!-- Fin del contenido principal -->
 </div>
-<!-- /.content-wrapper -->
+<!-- Fin del bloque de contenido principal -->
 
 <?php include('layout/parte2.php'); ?>

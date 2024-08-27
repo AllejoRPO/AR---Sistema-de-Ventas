@@ -32,8 +32,10 @@ include ('../app/controllers/usuarios/show_usuario.php')
     <div class="content">
         <div class="container-fluid">
 
+            <!-- Fila de contenido -->
             <div class="row">
                 <div class="col-md-5">
+                    <!-- Tarjeta de información del usuario -->
                     <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Información usuario</h3>
@@ -71,10 +73,11 @@ include ('../app/controllers/usuarios/show_usuario.php')
                         </div>
                         <!-- /.card-body -->
                     </div>
+                    <!-- /.card -->
                 </div>
             </div>
-
             <!-- /.row -->
+
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->

@@ -183,7 +183,7 @@ if (isset($_SESSION["mensaje"])) {
                 "emptyTable": "No hay información",
                 "decimal": "",
                 "info": "Mostrando _START_ a _END_ de _TOTAL_ Categorías",
-                "infoEmpty": "Mostrando 0 to 0 of 0 Categorías",
+                "infoEmpty": "Mostrando 0 a 0 de 0 Categorías",
                 "infoFiltered": "(Filtrado de _MAX_ total Categorías)",
                 "infoPostFix": "",
                 "thousands": ",",

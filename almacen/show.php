@@ -43,9 +43,12 @@ if (isset($_SESSION["mensaje"])) {
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
+
+            <!-- Fila principal -->
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-info">
+                        <!-- Cabecera de la tarjeta -->
                         <div class="card-header">
                             <h3 class="card-title">Información del producto</h3>
                             <div class="card-tools">
@@ -56,6 +59,8 @@ if (isset($_SESSION["mensaje"])) {
                             <!-- /.card-tools -->
                         </div>
                         <!-- /.card-header -->
+
+                        <!-- Cuerpo de la tarjeta -->
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
@@ -134,6 +139,7 @@ if (isset($_SESSION["mensaje"])) {
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="">Imagen del producto:</label>
@@ -143,6 +149,8 @@ if (isset($_SESSION["mensaje"])) {
                                             </div>
                                         </div>
                                     </div>
+
+                                    <!-- Botones de acción -->
                                     <hr>
                                     <div class="form-group">
                                         <a href="index.php" class="btn btn-secondary">Volver a lista de productos</a>

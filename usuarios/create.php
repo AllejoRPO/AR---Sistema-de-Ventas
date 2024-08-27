@@ -2,15 +2,19 @@
 
 // Incluir el archivo de configuración
 include ('../app/config.php');
+// Fin del bloque de configuración
 
 // Incluir el archivo de sesión
 include ('../layout/sesion.php');
+// Fin del bloque de sesión
 
 // Incluir la primera parte del layout
 include ('../layout/parte1.php');
+// Fin del bloque de layout parte1
 
 // Incluir el listado de roles
 include ('../app/controllers/roles/listado_de_roles.php');
+// Fin del bloque de listado de roles
 
 // Mostrar mensaje de sesión si existe
 if (isset($_SESSION["mensaje"])) {
@@ -29,6 +33,8 @@ if (isset($_SESSION["mensaje"])) {
     unset($_SESSION["mensaje"]);
     unset($_SESSION["icono"]);
 }
+// Fin del bloque de mensaje de sesión
+
 ?>
 
 <!-- Contenedor de contenido. Contiene el contenido de la página -->
@@ -100,6 +106,7 @@ if (isset($_SESSION["mensaje"])) {
                                             <button type="submit" class="btn btn-primary">Guardar</button>
                                         </div>
                                     </form>
+                                    <!-- Fin del formulario para crear un nuevo usuario -->
                                 </div>
                             </div>
                         </div>
@@ -117,4 +124,5 @@ if (isset($_SESSION["mensaje"])) {
 <?php
 // Incluir la segunda parte del layout
 include ('../layout/parte2.php');
+// Fin del bloque de layout parte2
 ?>

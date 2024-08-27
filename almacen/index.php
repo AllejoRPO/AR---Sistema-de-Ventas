@@ -56,6 +56,8 @@ if (isset($_SESSION["mensaje"])) {
                             <!-- /.card-tools -->
                         </div>
                         <!-- /.card-header -->
+
+                        <!-- Card body -->
                         <div class="card-body">
                             <div class="table table-responsive">
                                 <table id="example1" class="table table-bordered table-striped table-sm">
@@ -77,7 +79,7 @@ if (isset($_SESSION["mensaje"])) {
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $contador = 0;
+                                    $contador = 0; // Inicializa el contador
                                     foreach ($productos_datos as $productos_dato) {
                                         $id_producto = $productos_dato['id_producto']; ?>
 
@@ -97,11 +99,10 @@ if (isset($_SESSION["mensaje"])) {
                                             if ($stock_actual < $stock_minimo) { ?>
                                                 <td style="background-color: #d37f7f"><center><?php echo $productos_dato['stock']; ?></center></td>
                                             <?php
-                                            }
-                                            else if($stock_actual > $stock_maximo){ ?>
+                                            } else if($stock_actual > $stock_maximo){ ?>
                                                 <td style="background-color: #eada53"><center><?php echo $productos_dato['stock']; ?></center></td>
                                             <?php
-                                            }else{ ?>
+                                            } else { ?>
                                                 <td style="background-color: #71da89"><center><?php echo $productos_dato['stock']; ?></center></td>
                                             <?php
                                             }
@@ -141,6 +142,7 @@ if (isset($_SESSION["mensaje"])) {
 
 <?php include ('../layout/parte2.php');?>
 
+<!-- Script para inicializar y configurar DataTable -->
 <script>
     $(function () {
         $("#example1").DataTable({

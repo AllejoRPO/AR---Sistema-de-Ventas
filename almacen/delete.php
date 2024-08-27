@@ -33,6 +33,7 @@ if (isset($_SESSION["mensaje"])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
+                    <!-- Título de la página -->
                     <h1 class="m-0">Datos del producto <?php echo $nombre; ?> a eliminar</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -46,6 +47,7 @@ if (isset($_SESSION["mensaje"])) {
 
             <div class="row">
                 <div class="col-md-12">
+                    <!-- Card para confirmar eliminación del producto -->
                     <div class="card card-danger">
                         <div class="card-header">
                             <h3 class="card-title">¿Está seguro de eliminar este producto?</h3>
@@ -61,6 +63,7 @@ if (isset($_SESSION["mensaje"])) {
                         <div class="card-body" style="display: block;">
                             <div class="row">
                                 <div class="col-md-12">
+                                    <!-- Formulario para eliminar el producto -->
                                     <form action="../app/controllers/almacen/delete.php" method="post">
                                         <!-- Campo oculto para el ID del producto -->
                                         <input type="text" name="id_producto" value="<?php echo $id_producto_get; ?>" hidden>
@@ -167,6 +170,7 @@ if (isset($_SESSION["mensaje"])) {
 
                                         <hr>
                                         <div class="form-group">
+                                            <!-- Botones para cancelar o confirmar eliminación -->
                                             <a href="index.php" class="btn btn-secondary">Cancelar</a>
                                             <button class="btn btn-danger"><i class="fa fa-trash"> Borrar producto</i></button>
                                         </div>

@@ -1,5 +1,6 @@
 <?php
 
+// Inicio del bloque de inclusión de archivos
 // Incluir el archivo de configuración
 include ('../app/config.php');
 
@@ -11,8 +12,9 @@ include ('../layout/parte1.php');
 
 // Incluir el controlador para listar los usuarios
 include ('../app/controllers/usuarios/listado_de_usuarios.php');
+// Fin del bloque de inclusión de archivos
 
-// Mostrar un mensaje si está configurado en la sesión
+// Inicio del bloque para mostrar mensajes de sesión
 if (isset($_SESSION["mensaje"])) {
     $respuesta = $_SESSION["mensaje"]; ?>
     <script>
@@ -25,14 +27,17 @@ if (isset($_SESSION["mensaje"])) {
         });
     </script>
     <?php
+    // Eliminar los mensajes de la sesión después de mostrarlos
     unset($_SESSION["mensaje"]);
     unset($_SESSION["icono"]);
 }
+// Fin del bloque para mostrar mensajes de sesión
 ?>
 
-<!-- Contenedor de contenido. Contiene el contenido de la página -->
+<!-- Inicio del bloque de contenedor de contenido -->
 <div class="content-wrapper">
-    <!-- Encabezado de contenido (Encabezado de la página) -->
+    
+    <!-- Inicio del bloque de encabezado de contenido -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -42,9 +47,9 @@ if (isset($_SESSION["mensaje"])) {
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
+    <!-- Fin del bloque de encabezado de contenido -->
 
-    <!-- Contenido principal -->
+    <!-- Inicio del bloque de contenido principal -->
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -61,7 +66,7 @@ if (isset($_SESSION["mensaje"])) {
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body" style="display: block;">
-                            <!-- Tabla de usuarios -->
+                            <!-- Inicio del bloque de tabla de usuarios -->
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
@@ -107,6 +112,7 @@ if (isset($_SESSION["mensaje"])) {
                                 </tr>
                                 </tfoot>
                             </table>
+                            <!-- Fin del bloque de tabla de usuarios -->
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -119,10 +125,11 @@ if (isset($_SESSION["mensaje"])) {
 </div>
 <!-- /.content-wrapper -->
 
-<!-- Incluir la segunda parte del layout -->
+<!-- Inicio del bloque de inclusión de la segunda parte del layout -->
 <?php include ('../layout/parte2.php'); ?>
+<!-- Fin del bloque de inclusión de la segunda parte del layout -->
 
-<!-- Script para inicializar DataTable -->
+<!-- Inicio del bloque de inicialización de DataTable -->
 <script>
     $(function () {
         $("#example1").DataTable({
@@ -171,3 +178,4 @@ if (isset($_SESSION["mensaje"])) {
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
 </script>
+<!-- Fin del bloque de inicialización de DataTable -->

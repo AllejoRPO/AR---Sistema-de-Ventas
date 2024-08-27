@@ -1,17 +1,17 @@
 <?php
 
 // Incluir archivo de configuración y otros archivos necesarios
-include ('../app/config.php');
+include ('../app/config.php'); // Inicio de inclusión de archivos
 include ('../layout/sesion.php');
-include ('../layout/parte1.php');
+include ('../layout/parte1.php'); // Fin de inclusión de archivos
 
 // Incluir los controladores para obtener datos necesarios
-include ('../app/controllers/almacen/listado_de_productos.php');
+include ('../app/controllers/almacen/listado_de_productos.php'); // Inicio de inclusión de controladores
 include ('../app/controllers/proveedores/listado_de_proveedores.php');
-include ('../app/controllers/compras/cargar_compra.php');
+include ('../app/controllers/compras/cargar_compra.php'); // Fin de inclusión de controladores
 
 // Mostrar mensaje de sesión, si existe
-if (isset($_SESSION["mensaje"])) {
+if (isset($_SESSION["mensaje"])) { // Inicio de manejo de mensaje de sesión
     $respuesta = $_SESSION["mensaje"]; ?>
     <script>
         Swal.fire({
@@ -25,13 +25,13 @@ if (isset($_SESSION["mensaje"])) {
     <?php
     unset($_SESSION["mensaje"]);
     unset($_SESSION["icono"]);
-}
+} // Fin de manejo de mensaje de sesión
 ?>
 
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+<div class="content-wrapper"> <!-- Inicio del contenedor de contenido -->
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <div class="content-header"> <!-- Inicio del encabezado del contenido -->
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
@@ -39,18 +39,18 @@ if (isset($_SESSION["mensaje"])) {
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
-    </div>
+    </div> <!-- Fin del encabezado del contenido -->
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <div class="content">
+    <div class="content"> <!-- Inicio del contenido principal -->
         <div class="container-fluid">
 
             <div class="row">
                 <div class="col-md-9">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card card-danger">
+                            <div class="card card-danger"> <!-- Inicio de la tarjeta de eliminación -->
                                 <div class="card-header">
                                     <h3 class="card-title">¿Esta seguro de eliminar la compra?</h3>
 
@@ -62,7 +62,7 @@ if (isset($_SESSION["mensaje"])) {
                                     <!-- /.card-tools -->
                                 </div>
                                 <!-- /.card-header -->
-                                <div class="card-body" style="display: block;">
+                                <div class="card-body" style="display: block;"> <!-- Inicio del cuerpo de la tarjeta -->
                                     <div class="row" style="font-size: 12px">
                                         <div class="col-md-9">
                                             <div class="row">
@@ -76,7 +76,7 @@ if (isset($_SESSION["mensaje"])) {
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="">Categoría:</label>
-                                                        <input type="text" class="form-control" value="<?php echo $nombre_categoria; ?>"  id="categoria" disabled>
+                                                        <input type="text" class="form-control" value="<?php echo $nombre_categoria; ?>" id="categoria" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
@@ -196,14 +196,13 @@ if (isset($_SESSION["mensaje"])) {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
+                                </div> <!-- Fin del cuerpo de la tarjeta -->
+                            </div> <!-- Fin de la tarjeta de eliminación -->
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card card-outline card-danger">
+                    <div class="card card-outline card-danger"> <!-- Inicio de la tarjeta de detalle de compra -->
                         <div class="card-header">
                             <h3 class="card-title">Detalle de la compra</h3>
 
@@ -215,7 +214,7 @@ if (isset($_SESSION["mensaje"])) {
                             <!-- /.card-tools -->
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body">
+                        <div class="card-body"> <!-- Inicio del cuerpo de la tarjeta de detalle de compra -->
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -227,7 +226,7 @@ if (isset($_SESSION["mensaje"])) {
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Fecha de la compra</label>
-                                        <input type="date" class="form-control" value="<?php echo $fecha_compra; ?>"  id="fecha_compra"disabled>
+                                        <input type="date" class="form-control" value="<?php echo $fecha_compra; ?>"  id="fecha_compra" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -261,7 +260,7 @@ if (isset($_SESSION["mensaje"])) {
                                 </div>
                                 <div id="respuesta_delete"></div>
                                 <script>
-                                            $('#btn_eliminar').click(function () {
+                                            $('#btn_eliminar').click(function () { // Inicio de manejo de eliminación
                                                 var id_compra = '<?php echo $id_compra_get; ?>';
                                                 var id_producto = $('#id_producto').val();
                                                 var cantidad_compra = '<?php echo $cantidad; ?>';
@@ -285,26 +284,25 @@ if (isset($_SESSION["mensaje"])) {
                                                     }
                                                 });
 
-                                                function eliminar() {
+                                                function eliminar() { // Inicio de función de eliminación
                                                     var url = "../app/controllers/compras/delete.php";
                                                     $.get(url,{id_compra:id_compra,id_producto:id_producto,cantidad_compra:cantidad_compra,stock_actual:stock_actual},function (datos) {
                                                         $('#respuesta_delete').html(datos);
                                                     });
-                                                }
-                                            });
+                                                } // Fin de función de eliminación
+                                            }); // Fin de manejo de eliminación
                                         </script>
                             </div>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
+                        </div> <!-- Fin del cuerpo de la tarjeta de detalle de compra -->
+                    </div> <!-- Fin de la tarjeta de detalle de compra -->
                 </div>
             </div>
 
             <!-- /.row -->
         </div><!-- /.container-fluid -->
-    </div>
+    </div> <!-- Fin del contenido principal -->
     <!-- /.content -->
-</div>
+</div> <!-- Fin del contenedor de contenido -->
 <!-- /.content-wrapper -->
 
-<?php include ('../layout/parte2.php');?>
+<?php include ('../layout/parte2.php'); ?> <!-- Inicio de inclusión del pie de página -->
