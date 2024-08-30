@@ -11,7 +11,7 @@ $stock_actual = $_GET['stock_actual'];
 
 $pdo->beginTransaction();
 
-// Preparar la consulta SQL para insertar el producto en la base de datos
+// Preparar la consulta SQL para eliminar la compra en la base de datos
 $sentencia = $pdo->prepare("DELETE FROM tb_compras WHERE id_compra = :id_compra");
 
 // Enlazar los parámetros a la consulta

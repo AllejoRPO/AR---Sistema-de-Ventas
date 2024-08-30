@@ -9,7 +9,7 @@ Esta es una página de plantilla de la parte 2
         Desarrollado por Alejandro Restrepo Jiménez
     </div>
     <!-- Por defecto a la izquierda -->
-    <strong>Copyright &copy; 2024 <a href="https://www.instagram.com/alejo_rpo_/" target="_blank">Alejandro_Rpo</a>.</strong> Todos los derechos reservados.
+    <strong>Copyright &copy; 2024 <a href="https://www.instagram.com/alejandro_rpo/" target="_blank">Alejandro_Rpo</a>.</strong> Todos los derechos reservados.
 </footer>
 </div>
 <!-- ./wrapper -->
