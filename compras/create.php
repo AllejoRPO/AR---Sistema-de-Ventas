@@ -76,7 +76,7 @@ if (isset($_SESSION["mensaje"])) {
                                             <div class="modal-dialog modal-xl">
                                                 <div class="modal-content">
                                                     <div class="modal-header" style="background-color: #0a4c98; color: #ffffff ">
-                                                        <h4 class="modal-title">Busqueda del producto</h4>
+                                                        <h4 class="modal-title">Búsqueda del producto</h4>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -285,7 +285,7 @@ if (isset($_SESSION["mensaje"])) {
                                             <div class="modal-dialog modal-xl">
                                                 <div class="modal-content">
                                                     <div class="modal-header" style="background-color: #0a4c98; color: #ffffff ">
-                                                        <h4 class="modal-title">Busqueda del proveedor</h4>
+                                                        <h4 class="modal-title">Búsqueda del proveedor</h4>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>

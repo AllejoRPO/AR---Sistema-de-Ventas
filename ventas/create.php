@@ -8,6 +8,7 @@ include ('../layout/parte1.php');
 // Incluir los controladores para obtener datos necesarios
 include ('../app/controllers/ventas/listado_de_ventas.php');
 include ('../app/controllers/almacen/listado_de_productos.php');
+include ('../app/controllers/clientes/listado_de_clientes.php');
 // Mostrar mensaje de sesión, si existe
 if (isset($_SESSION["mensaje"])) {
     $respuesta = $_SESSION["mensaje"]; ?>
@@ -77,7 +78,7 @@ if (isset($_SESSION["mensaje"])) {
                                 <div class="modal-dialog modal-xl">
                                     <div class="modal-content">
                                         <div class="modal-header" style="background-color: #0a4c98; color: #ffffff ">
-                                            <h4 class="modal-title">Busqueda del producto</h4>
+                                            <h4 class="modal-title">Búsqueda del producto</h4>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -292,7 +293,7 @@ if (isset($_SESSION["mensaje"])) {
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-9">
                     <div class="card card-outline card-primary">
                         <div class="card-header">
                             <h3 class="card-title"><i class="fa fa-user-check"></i> Datos del cliente</h3>
@@ -306,7 +307,178 @@ if (isset($_SESSION["mensaje"])) {
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            aaaaaa
+                            <b>Cliente</b>
+                            <button type="button" class="btn btn-primary border-transparent" data-toggle="modal"
+                                    data-target="#modal-buscar_cliente">
+                                <i class="fa fa-search"></i>
+                                Buscar cliente
+                            </button>
+                            <!-- Modal para buscar clientes -->
+                            <div class="modal fade" id="modal-buscar_cliente">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header" style="background-color: #0a4c98; color: #ffffff ">
+                                            <h4 class="modal-title">Búsqueda del cliente</h4>
+                                            <div style="width: 10px"></div>
+                                            <button type="button" class="btn btn-warning border-transparent" data-toggle="modal"
+                                                    data-target="#modal-agregar_cliente">
+                                                <i class="fa fa-users"></i>
+                                                Registrar nuevo cliente
+                                            </button>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="table table-responsive">
+                                                <table id="example2" class="table table-bordered table-striped table-sm">
+                                                    <thead>
+                                                    <tr>
+                                                        <th><center>Nro</center></th>
+                                                        <th><center>Seleccionar</center></th>
+                                                        <th><center>Nombre del cliente</center></th>
+                                                        <th><center>Nit/CI</center></th>
+                                                        <th><center>Celular</center></th>
+                                                        <th><center>Correo</center></th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <?php
+                                                    $contador_de_clientes = 0;
+                                                    foreach ($clientes_datos as $clientes_dato) {
+                                                        $id_cliente = $clientes_dato['id_cliente'];
+                                                        $contador_de_clientes = $contador_de_clientes + 1; ?>
+                                                        <tr>
+                                                            <td style="text-align: center"><?php echo $contador_de_clientes;  ?></td>
+                                                            <td style="text-align: center">
+                                                                <button id="btn_pasar_cliente<?php echo $id_cliente;?>" class="btn btn-outline-info">Seleccionar</button>
+                                                                <script>
+                                                                    $('#btn_pasar_cliente<?php echo $id_cliente;?>').click(function () {
+                                                                        var id_cliente = '<?php echo $clientes_dato['id_cliente']; ?>';
+                                                                        $('#id_cliente').val(id_cliente);
+
+                                                                        var nombre_cliente = '<?php echo $clientes_dato['nombre_cliente']; ?>';
+                                                                        $('#nombre_cliente').val(nombre_cliente);
+
+                                                                        var nit_ci_cliente = '<?php echo $clientes_dato['nit_ci_cliente']; ?>';
+                                                                        $('#nit_ci_cliente').val(nit_ci_cliente);
+
+                                                                        var celular_cliente = '<?php echo $clientes_dato['celular_cliente']; ?>';
+                                                                        $('#celular_cliente').val(celular_cliente);
+
+                                                                        var email_cliente = '<?php echo $clientes_dato['email_cliente']; ?>';
+                                                                        $('#email_cliente').val(email_cliente);
+
+                                                                        $('#modal-buscar_cliente').modal('toggle');
+                                                                    });
+                                                                </script>
+                                                            </td>
+                                                            <td style="text-align: center"><?php echo $clientes_dato['nombre_cliente'];  ?></td>
+                                                            <td style="text-align: center"><?php echo $clientes_dato['nit_ci_cliente'];  ?></td>
+                                                            <td style="text-align: center"><?php echo $clientes_dato['celular_cliente'];  ?></td>
+                                                            <td style="text-align: center"><?php echo $clientes_dato['email_cliente'];  ?></td>
+                                                        </tr>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <!-- /.modal -->
+                            </div><!-- /.modal buscar cliente -->
+                            <br><br>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <input type="text" id="id_cliente" hidden>
+                                        <label for="">Nombre del cliente</label>
+                                        <input type="text" class="form-control" id="nombre_cliente">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="">Nit/CI del cliente</label>
+                                        <input type="text" class="form-control" id="nit_ci_cliente">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="">Celular del cliente</label>
+                                        <input type="text" class="form-control" id="celular_cliente">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="">Correo del cliente</label>
+                                        <input type="text" class="form-control" id="email_cliente">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-outline card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title"><i class="fa fa-shopping-basket"></i> Registrar venta</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="">Monto a cancelar</label>
+                                <input type="text" class="form-control" style="text-align: center;background-color: #ffcd00"
+                                       id="total_a_cancelar" value="<?php echo $precio_total; ?>" disabled>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Total recibido</label>
+                                        <input type="number" class="form-control" id="total_recibido">
+                                        <script>
+                                            $('#total_recibido').keyup(function () {
+                                                var total_a_cancelar = $('#total_a_cancelar').val();
+                                                var total_recibido = $('#total_recibido').val();
+                                                var devuelta_cliente = parseFloat(total_recibido) - parseFloat(total_a_cancelar);
+                                                $('#devuelta_cliente').val(devuelta_cliente);
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Devuelta cliente</label>
+                                        <input type="number" class="form-control" id="devuelta_cliente" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <button id="btn_guardar_venta" class="btn btn-primary btn btn-block">Confirmar venta</button>
+                                <script>
+                                    $('#btn_guardar_venta').click(function () {
+                                        var nro_venta = '<?php echo $contador_de_ventas + 1; ?>';
+                                        var id_cliente = $('#id_cliente').val();
+                                        var total_a_cancelar = $('#total_a_cancelar').val();
+
+                                        if (id_cliente==""){
+                                            alert("Debe llenar los datos del cloiente");
+                                        }
+                                    });
+                                </script>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -363,12 +535,12 @@ if (isset($_SESSION["mensaje"])) {
             language: {
                 "emptyTable": "No hay información",
                 "decimal": "",
-                "info": "Mostrando _START_ a _END_ de _TOTAL_ Proveedores",
-                "infoEmpty": "Mostrando 0 a 0 de 0 Proveedores",
-                "infoFiltered": "(Filtrado de _MAX_ total Proveedores)",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ clientes",
+                "infoEmpty": "Mostrando 0 a 0 de 0 clientes",
+                "infoFiltered": "(Filtrado de _MAX_ total clientes)",
                 "infoPostFix": "",
                 "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ Proveedores",
+                "lengthMenu": "Mostrar _MENU_ clientes",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
                 "search": "Buscador:",
@@ -405,4 +577,47 @@ if (isset($_SESSION["mensaje"])) {
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
 </script>
+
+<!-- Modal para registrar clientes -->
+<div class="modal fade" id="modal-agregar_cliente">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #af8f0f; color: #ffffff ">
+                <h4 class="modal-title">Nuevo cliente</h4>
+                <div style="width: 10px"></div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="../app/controllers/clientes/guardar_clientes.php" method="post">
+                    <div class="form-group">
+                        <label for="">Nombre del cliente</label>
+                        <input type="text" name="nombre_cliente" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Nit/CI del cliente</label>
+                        <input type="text" name="nit_ci_cliente" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Celular del cliente</label>
+                        <input type="text" name="celular_cliente" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Correo del cliente</label>
+                        <input type="email" name="email_cliente" class="form-control">
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-warning btn-block">Guardar cliente</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>
+
+
 
