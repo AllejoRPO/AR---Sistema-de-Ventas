@@ -56,7 +56,7 @@ if (isset($_SESSION["mensaje"])) {
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-7">
-                    <div class="card-outline card-primary">
+                    <div class=" card card-outline card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Roles registrados</h3>
                             <div class="card-tools">

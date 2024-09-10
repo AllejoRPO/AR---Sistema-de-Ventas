@@ -229,14 +229,14 @@ if (isset($_SESSION["mensaje"])) {
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $contaddor_de_carrito = 0;
+                                    $contador_de_carrito = 0;
                                     $cantidad_total = 0;
                                     $precio_unitario_total = 0;
                                     $precio_total = 0;
 
                                     $nro_venta = $contador_de_ventas + 1;
 
-                                    $sql_carrito = "SELECT *, pro.nombre as nombre_producto, pro.descripcion as descripcion, pro.precio_venta as precio_venta FROM tb_carrito as carr INNER JOIN tb_almacen as pro ON carr.id_producto = pro.id_producto WHERE nro_venta = '$nro_venta' ORDER BY id_carrito ASC ";
+                                    $sql_carrito = "SELECT *, pro.nombre as nombre_producto, pro.descripcion as descripcion, pro.precio_venta as precio_venta, pro.stock as stock, pro.id_producto as id_producto FROM tb_carrito as carr INNER JOIN tb_almacen as pro ON carr.id_producto = pro.id_producto WHERE nro_venta = '$nro_venta' ORDER BY id_carrito ASC ";
 
                                     // Preparar la consulta SQL utilizando PDO
                                     $query_carrito = $pdo->prepare($sql_carrito);
@@ -249,15 +249,21 @@ if (isset($_SESSION["mensaje"])) {
 
                                     foreach ($carrito_datos as $carrito_dato){
                                         $id_carrito = $carrito_dato['id_carrito'];
-                                        $contaddor_de_carrito = $contaddor_de_carrito + 1;
+                                        $contador_de_carrito = $contador_de_carrito + 1;
                                         $cantidad_total = $cantidad_total + $carrito_dato ['cantidad'];
                                         $precio_unitario_total = $precio_unitario_total + floatval($carrito_dato ['precio_venta']);
                                         ?>
                                         <tr>
-                                            <td style="text-align: center"><?php echo $contaddor_de_carrito; ?></td>
+                                            <td style="text-align: center">
+                                                <?php echo $contador_de_carrito; ?>
+                                                <input type="text" value="<?php echo $carrito_dato ['id_producto']; ?>" id="id_producto<?php echo $contador_de_carrito; ?>" hidden>
+                                            </td>
                                             <td style="text-align: center"><?php echo $carrito_dato ['nombre_producto']; ?></td>
                                             <td style="text-align: center"><?php echo $carrito_dato ['descripcion']; ?></td>
-                                            <td style="text-align: center"><?php echo $carrito_dato ['cantidad']; ?></td>
+                                            <td style="text-align: center">
+                                                <span id="cantidad_carrito<?php echo $contador_de_carrito; ?>"><?php echo $carrito_dato ['cantidad']; ?></span>
+                                                <input type="text" value="<?php echo $carrito_dato ['stock']; ?>" id="stock_de_inventario<?php echo $contador_de_carrito; ?>" hidden>
+                                            </td>
                                             <td style="text-align: center"><?php echo $carrito_dato ['precio_venta']; ?></td>
                                             <td style="text-align: center">
                                                 <?php
@@ -467,6 +473,7 @@ if (isset($_SESSION["mensaje"])) {
                             <hr>
                             <div class="form-group">
                                 <button id="btn_guardar_venta" class="btn btn-primary btn btn-block">Confirmar venta</button>
+                                <div id="respuesta_registro_venta"></div>
                                 <script>
                                     $('#btn_guardar_venta').click(function () {
                                         var nro_venta = '<?php echo $contador_de_ventas + 1; ?>';
@@ -474,8 +481,50 @@ if (isset($_SESSION["mensaje"])) {
                                         var total_a_cancelar = $('#total_a_cancelar').val();
 
                                         if (id_cliente==""){
-                                            alert("Debe llenar los datos del cloiente");
+                                            alert("Debe llenar los datos del cliente");
+                                        }else{
+                                            actualizar_stock();
+                                            guardar_venta();
                                         }
+
+                                        function actualizar_stock () {
+
+                                            var i = 1;
+                                            var n = '<?php echo $contador_de_carrito; ?>';
+
+                                            for ( i = 1; i <= n;i++){
+                                                var a = '#stock_de_inventario'+i;
+                                                var stock_de_inventario = $(a).val();
+
+                                                var b = '#cantidad_carrito'+i;
+                                                var cantidad_carrito = $(b).html();
+
+                                                var c = '#id_producto'+i;
+                                                var id_producto = $(c).val();
+
+                                                var stock_calculado = parseFloat(stock_de_inventario - cantidad_carrito);
+
+                                                //alert(id_producto +" - "+ stock_de_inventario +" - "+ cantidad_carrito +" - "+ stock_calculado);
+
+                                                var url2 = "../app/controllers/ventas/actualizar_stock.php";
+                                                $.get(url2, {
+                                                    id_producto:id_producto, stock_calculado:stock_calculado
+                                                }, function (datos) {
+                                                });
+
+                                            }
+
+                                        }
+
+                                        function guardar_venta () {
+                                            var url = "../app/controllers/ventas/registro_de_ventas.php";
+                                            $.get(url, {
+                                                nro_venta:nro_venta, id_cliente:id_cliente, total_a_cancelar:total_a_cancelar
+                                            }, function (datos) {
+                                                $('#respuesta_registro_venta').html(datos);
+                                            });
+                                        }
+                                        
                                     });
                                 </script>
                             </div>

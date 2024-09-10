@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3307
--- Tiempo de generación: 07-09-2024 a las 18:31:51
+-- Tiempo de generación: 10-09-2024 a las 18:29:50
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -50,10 +50,10 @@ CREATE TABLE `tb_almacen` (
 --
 
 INSERT INTO `tb_almacen` (`id_producto`, `codigo`, `nombre`, `descripcion`, `stock`, `stock_minimo`, `stock_maximo`, `precio_compra`, `precio_venta`, `fecha_ingreso`, `imagen`, `id_usuario`, `id_categoria`, `fyh_creacion`, `fyh_actualizacion`) VALUES
-(1, 'P-00001', 'Coca-Cola', '1,5 litros. No retornable', 50, 10, 100, '4500', '5000', '2024-07-15', '2024-07-15-16-29-18__Gaseosa-Coca-Cola-x-1.5-lt.png', 1, 1, '2024-07-15 16:29:18', '2024-07-17 14:43:43'),
-(2, 'P-00002', 'Salchicha viena parrillada', '160gr. Lata por 7 unidades', 50, 10, 100, '3300', '4000', '2024-07-15', '2024-07-15-16-30-19__salchicha-zenu-parrillada-160gr.png', 1, 8, '2024-07-15 16:30:19', '2024-07-17 14:44:07'),
-(6, 'P-00003', 'Arroz diana', '500gr. 1 bolsa', 50, 20, 70, '2800', '3400', '2024-07-18', '2024-07-18-08-01-52__arroz-diana-libra.png', 1, 2, '2024-07-18 08:01:52', '0000-00-00 00:00:00'),
-(7, 'P-00004', 'Arroz diana con fibra', '500gr. 1 bolsa', 40, 10, 30, '3900', '4400', '2024-09-07', '2024-09-07-10-28-11__arroz-diana-fibra-bolsa-x-500-gramos.png', 1, 2, '2024-09-07 10:28:11', '0000-00-00 00:00:00');
+(1, 'P-00001', 'Coca-Cola', '1,5 litros. No retornable', 46, 10, 100, '4500', '5000', '2024-07-15', '2024-07-15-16-29-18__Gaseosa-Coca-Cola-x-1.5-lt.png', 1, 1, '2024-07-15 16:29:18', '2024-07-17 14:43:43'),
+(2, 'P-00002', 'Salchicha viena parrillada', '160gr. Lata por 7 unidades', 62, 10, 100, '3300', '4000', '2024-07-15', '2024-07-15-16-30-19__salchicha-zenu-parrillada-160gr.png', 1, 8, '2024-07-15 16:30:19', '2024-07-17 14:44:07'),
+(6, 'P-00003', 'Arroz diana', '500gr. 1 bolsa', 46, 20, 70, '2800', '3400', '2024-07-18', '2024-07-18-08-01-52__arroz-diana-libra.png', 1, 2, '2024-07-18 08:01:52', '0000-00-00 00:00:00'),
+(7, 'P-00004', 'Arroz diana con fibra', '500gr. 1 bolsa', 36, 10, 30, '3900', '4400', '2024-09-07', '2024-09-07-10-28-11__arroz-diana-fibra-bolsa-x-500-gramos.png', 1, 2, '2024-09-07 10:28:11', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -76,7 +76,8 @@ CREATE TABLE `tb_carrito` (
 
 INSERT INTO `tb_carrito` (`id_carrito`, `nro_venta`, `id_producto`, `cantidad`, `fyh_creacion`, `fyh_actualizacion`) VALUES
 (1, 1, 7, 2, '2024-09-07 11:16:47', '0000-00-00 00:00:00'),
-(2, 1, 1, 2, '2024-09-07 11:19:14', '0000-00-00 00:00:00');
+(2, 1, 1, 2, '2024-09-07 11:19:14', '0000-00-00 00:00:00'),
+(6, 1, 6, 2, '2024-09-09 11:45:53', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -256,6 +257,13 @@ CREATE TABLE `tb_ventas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Volcado de datos para la tabla `tb_ventas`
+--
+
+INSERT INTO `tb_ventas` (`id_venta`, `nro_venta`, `id_cliente`, `total_pagado`, `fyh_creacion`, `fyh_actualizacion`) VALUES
+(1, 1, 1, 25600, '2024-09-09 12:18:04', '0000-00-00 00:00:00');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -337,7 +345,7 @@ ALTER TABLE `tb_almacen`
 -- AUTO_INCREMENT de la tabla `tb_carrito`
 --
 ALTER TABLE `tb_carrito`
-  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_categorias`
@@ -379,7 +387,7 @@ ALTER TABLE `tb_usuarios`
 -- AUTO_INCREMENT de la tabla `tb_ventas`
 --
 ALTER TABLE `tb_ventas`
-  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
