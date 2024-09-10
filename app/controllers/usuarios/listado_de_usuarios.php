@@ -1,6 +1,6 @@
 <?php
 
-// Preparar la consulta SQL para obtener datos de usuarios y sus roles
+// Preparar la consulta SQL para obtener datos de usuarios y sus roles.
 $sql_usuarios = "
     SELECT 
         us.id_usuario AS id_usuario, 

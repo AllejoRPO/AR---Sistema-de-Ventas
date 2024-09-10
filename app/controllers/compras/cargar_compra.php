@@ -2,7 +2,7 @@
 
 $id_compra_get = $_GET['id'];
 
-// Preparar la consulta SQL para obtener todos los productos con información adicional
+// Preparar la consulta SQL para obtener todos los productos con información adicional.
 $sql_compras = "SELECT *, co.precio_compra as precio_compra, 
                 pro.codigo as codigo, pro.nombre as nombre_producto, pro.descripcion as descripcion, pro.stock as stock, 
                 pro.stock_minimo as stock_minimo, pro.stock_maximo as stock_maximo, pro.precio_compra as precio_compra_producto,

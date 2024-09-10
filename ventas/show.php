@@ -1,7 +1,7 @@
 <?php
 $id_venta_get = $_GET['id_venta'];
 
-// Incluir archivo de configuración y otros archivos necesarios
+// Incluir archivo de configuración y otros archivos necesarios.
 include ('../app/config.php');
 include ('../layout/sesion.php');
 include ('../layout/parte1.php');

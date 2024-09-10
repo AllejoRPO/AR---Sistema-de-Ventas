@@ -1,6 +1,6 @@
 <?php
 
-// Preparar la consulta SQL para obtener todos los productos con información adicional
+// Preparar la consulta SQL para obtener todos los productos con información adicional.
 $sql_productos = "
     SELECT *, 
            cat.nombre_categoria AS categoria, 

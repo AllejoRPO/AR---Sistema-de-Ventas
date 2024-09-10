@@ -1,6 +1,6 @@
 <?php
 
-// Bloque 1: Incluir archivos de configuración y otros archivos necesarios
+// Bloque 1: Incluir archivos de configuración y otros archivos necesarios.
 include ('../app/config.php');
 include ('../layout/sesion.php');
 include ('../layout/parte1.php');

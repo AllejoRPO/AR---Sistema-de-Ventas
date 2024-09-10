@@ -1,6 +1,6 @@
 <?php
 
-// Preparar la consulta SQL para obtener todas las ventas con información adicional
+// Preparar la consulta SQL para obtener todas las ventas con información adicional.
 $sql_ventas = "SELECT *, cli.nombre_cliente = nombre_cliente 
                FROM tb_ventas as ve INNER JOIN tb_clientes as cli ON cli.id_cliente = ve.id_cliente WHERE ve.id_venta = '$id_venta_get' ";
 

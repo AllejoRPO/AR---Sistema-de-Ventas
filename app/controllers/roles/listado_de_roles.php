@@ -1,6 +1,6 @@
 <?php
 
-// Preparar la consulta SQL para obtener todos los roles de la base de datos
+// Preparar la consulta SQL para obtener todos los roles de la base de datos.
 $sql_roles = "SELECT * FROM tb_roles";
 
 // Preparar y ejecutar la consulta

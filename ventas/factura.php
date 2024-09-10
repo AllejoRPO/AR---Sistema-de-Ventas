@@ -1,6 +1,6 @@
 <?php
 
-// Include the main TCPDF library (search for installation path).
+// Include the main TCPDF library (search for installation path)
 
 require_once('../app/TCPDF-main/tcpdf.php');
 include ('../app/config.php');

@@ -1,6 +1,6 @@
 <?php
 
-// Definición de constantes para la conexión a la base de datos
+// Definición de constantes para la conexión a la base de datos.
 define('SERVIDOR', 'localhost');     // Nombre del servidor de base de datos
 define('USUARIO', 'root');            // Usuario para la base de datos
 define('PASSWORD', '');              // Contraseña para el usuario

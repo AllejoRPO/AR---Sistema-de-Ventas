@@ -1,6 +1,6 @@
 <?php
 
-// Incluir archivo de configuración y otros archivos necesarios
+// Incluir archivo de configuración y otros archivos necesarios.
 include ('../app/config.php'); // Inicio de inclusión de archivos
 include ('../layout/sesion.php');
 include ('../layout/parte1.php'); // Fin de inclusión de archivos

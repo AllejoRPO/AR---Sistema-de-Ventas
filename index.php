@@ -1,6 +1,6 @@
 <?php
 
-// Inicio del bloque de inclusión de archivos de configuración y sesión
+// Inicio del bloque de inclusión de archivos de configuración y sesión.
 include('app/config.php'); // Incluye la configuración de la aplicación
 include('layout/sesion.php'); // Incluye el archivo de sesión (manejo de sesiones de usuario)
 // Fin del bloque de inclusión de archivos de configuración y sesión

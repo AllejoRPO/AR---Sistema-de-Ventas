@@ -1,6 +1,6 @@
 <?php
 
-// Inicio del bloque de inclusión de archivos
+// Inicio del bloque de inclusión de archivos.
 // Incluir el archivo de configuración
 include ('../app/config.php');
 

@@ -1,6 +1,6 @@
 <?php
 
-// Preparar la consulta SQL para obtener todas las categorías
+// Preparar la consulta SQL para obtener todas las categorías.
 $sql_categorias = "SELECT * FROM tb_categorias";
 
 // Preparar la consulta SQL utilizando PDO

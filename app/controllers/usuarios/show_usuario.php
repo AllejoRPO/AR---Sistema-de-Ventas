@@ -1,6 +1,6 @@
 <?php
 
-// Obtener el ID del usuario desde la URL
+// Obtener el ID del usuario desde la URL.
 $id_usuario_get = $_GET['id'];
 
 // Preparar la consulta SQL para obtener datos del usuario y su rol específico

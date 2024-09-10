@@ -1,6 +1,6 @@
 <?php
 
-// Iniciar la sesión
+// Iniciar la sesión.
 session_start();
 
 // Verificar si la sesión está activa

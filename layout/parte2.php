@@ -1,5 +1,5 @@
 <!--
-Esta es una página de plantilla de la parte 2
+Esta es una página de plantilla de la parte 2.
 -->
 
 <!-- Pie de página principal -->

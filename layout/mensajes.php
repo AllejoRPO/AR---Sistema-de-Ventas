@@ -1,5 +1,5 @@
 <?php
-// Verifica si hay un mensaje y un ícono en la sesión
+// Verifica si hay un mensaje y un ícono en la sesión.
 if (isset($_SESSION['mensaje']) && isset($_SESSION['icono'])) {
     // Asigna el mensaje y el ícono de la sesión a variables locales
     $respuesta = $_SESSION['mensaje'];

@@ -1,6 +1,6 @@
 <?php
 
-// Obtener el ID del rol desde la URL
+// Obtener el ID del rol desde la URL.
 $id_rol_get = $_GET['id'];
 
 // Preparar la consulta SQL para seleccionar el rol específico

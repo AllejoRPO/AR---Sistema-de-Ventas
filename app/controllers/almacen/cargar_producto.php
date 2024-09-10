@@ -1,6 +1,6 @@
 <?php
 
-// Obtener el identificador del producto desde la URL
+// Obtener el identificador del producto desde la URL.
 $id_producto_get = $_GET['id'];
 
 // Consulta SQL para obtener los detalles del producto

@@ -1,6 +1,6 @@
 <?php
 
-// Preparar la consulta SQL para obtener todos los clientes con información adicional
+// Preparar la consulta SQL para obtener todos los clientes con información adicional.
 $sql_clientes = "SELECT * FROM tb_clientes WHERE id_cliente = '$id_cliente' ";
 
 // Preparar la consulta SQL utilizando PDO

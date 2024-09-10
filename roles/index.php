@@ -1,6 +1,6 @@
 <?php
 
-// Incluir el archivo de configuración
+// Incluir el archivo de configuración.
 include ('../app/config.php');
 // Fin del bloque de configuración
 

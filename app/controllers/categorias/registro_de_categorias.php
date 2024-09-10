@@ -1,6 +1,6 @@
 <?php
 
-// Incluir el archivo de configuración para establecer conexión con la base de datos
+// Incluir el archivo de configuración para establecer conexión con la base de datos.
 include ("../../config.php");
 
 // Obtener el nombre de la categoría desde la solicitud GET

@@ -1,6 +1,6 @@
 <?php
 
-// Incluir archivo de configuración para establecer conexión con la base de datos
+// Incluir archivo de configuración para establecer conexión con la base de datos.
 include ('../../config.php');
 
 // Obtener el ID del usuario a eliminar

@@ -1,6 +1,6 @@
 <?php
 
-// Incluye archivos de configuración y diseño
+// Incluye archivos de configuración y diseño.
 include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/parte1.php');

@@ -1,6 +1,6 @@
 <?php
 
-// Preparar la consulta SQL para obtener todoas las ventas con información adicional
+// Preparar la consulta SQL para obtener todoas las ventas con información adicional.
 $sql_clientes = "SELECT * FROM tb_clientes";
 
 // Preparar la consulta SQL utilizando PDO

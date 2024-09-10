@@ -1,6 +1,6 @@
 <?php
 
-// Incluir el archivo de configuración
+// Incluir el archivo de configuración.
 include ('../../config.php');
 
 // Obtener el ID del producto a eliminar desde el formulario

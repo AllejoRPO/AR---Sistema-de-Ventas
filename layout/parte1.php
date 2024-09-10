@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-Esta es una página de plantilla de la parte 1
+Esta es una página de plantilla de la parte 1.
 -->
 <html lang="es">
 <head>

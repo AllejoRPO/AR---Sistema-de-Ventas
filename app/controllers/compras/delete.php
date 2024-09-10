@@ -1,5 +1,5 @@
 <?php
-// Incluir el archivo de configuración
+// Incluir el archivo de configuración.
 include ('../../config.php');
 
 $id_compra = $_GET['id_compra'];

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sistema de Ventas</title>
 
-    <!-- Incluye la fuente de Google: Source Sans Pro -->
+    <!-- Incluye la fuente de Google: Source Sans Pro. -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <!-- Incluye Font Awesome -->

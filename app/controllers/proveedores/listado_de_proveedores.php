@@ -1,6 +1,6 @@
 <?php
 
-// Preparar la consulta SQL para obtener todos los proveedores
+// Preparar la consulta SQL para obtener todos los proveedores.
 $sql_proveedores = "SELECT * FROM tb_proveedores";
 
 // Preparar y ejecutar la consulta
