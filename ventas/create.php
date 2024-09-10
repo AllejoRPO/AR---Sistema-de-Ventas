@@ -34,7 +34,7 @@ if (isset($_SESSION["mensaje"])) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="m-0">Ventas</h1>
+                    <h1 class="m-0"> Realizar ventas</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
