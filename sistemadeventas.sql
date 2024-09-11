@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3307
--- Tiempo de generación: 10-09-2024 a las 21:31:21
+-- Tiempo de generación: 11-09-2024 a las 23:57:21
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -51,9 +51,10 @@ CREATE TABLE `tb_almacen` (
 
 INSERT INTO `tb_almacen` (`id_producto`, `codigo`, `nombre`, `descripcion`, `stock`, `stock_minimo`, `stock_maximo`, `precio_compra`, `precio_venta`, `fecha_ingreso`, `imagen`, `id_usuario`, `id_categoria`, `fyh_creacion`, `fyh_actualizacion`) VALUES
 (1, 'P-00001', 'Coca-Cola', '1,5 litros. No retornable', 46, 10, 100, '4500', '5000', '2024-07-15', '2024-07-15-16-29-18__Gaseosa-Coca-Cola-x-1.5-lt.png', 1, 1, '2024-07-15 16:29:18', '2024-07-17 14:43:43'),
-(2, 'P-00002', 'Salchicha viena parrillada', '160gr. Lata por 7 unidades', 62, 10, 100, '3300', '4000', '2024-07-15', '2024-07-15-16-30-19__salchicha-zenu-parrillada-160gr.png', 1, 8, '2024-07-15 16:30:19', '2024-07-17 14:44:07'),
+(2, 'P-00002', 'Salchicha viena parrillada', '160gr. Lata por 7 unidades', 56, 10, 100, '3300', '4000', '2024-07-15', '2024-07-15-16-30-19__salchicha-zenu-parrillada-160gr.png', 1, 8, '2024-07-15 16:30:19', '2024-07-17 14:44:07'),
 (6, 'P-00003', 'Arroz diana', '500gr. 1 bolsa', 46, 20, 70, '2800', '3400', '2024-07-18', '2024-07-18-08-01-52__arroz-diana-libra.png', 1, 2, '2024-07-18 08:01:52', '0000-00-00 00:00:00'),
-(7, 'P-00004', 'Arroz diana con fibra', '500gr. 1 bolsa', 36, 10, 30, '3900', '4400', '2024-09-07', '2024-09-07-10-28-11__arroz-diana-fibra-bolsa-x-500-gramos.png', 1, 2, '2024-09-07 10:28:11', '0000-00-00 00:00:00');
+(7, 'P-00004', 'Arroz diana con fibra', '500gr. 1 bolsa', 34, 10, 30, '3900', '4400', '2024-09-07', '2024-09-07-10-28-11__arroz-diana-fibra-bolsa-x-500-gramos.png', 1, 2, '2024-09-07 10:28:11', '0000-00-00 00:00:00'),
+(8, 'P-00005', 'Whiskas gatos', 'Fillets Res. 85gr', 10, 10, 20, '2500', '2900', '2024-09-11', '2024-09-11-16-44-22__whiskas-res.png', 1, 7, '2024-09-11 16:44:22', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -75,9 +76,14 @@ CREATE TABLE `tb_carrito` (
 --
 
 INSERT INTO `tb_carrito` (`id_carrito`, `nro_venta`, `id_producto`, `cantidad`, `fyh_creacion`, `fyh_actualizacion`) VALUES
-(1, 1, 7, 2, '2024-09-07 11:16:47', '0000-00-00 00:00:00'),
-(2, 1, 1, 2, '2024-09-07 11:19:14', '0000-00-00 00:00:00'),
-(6, 1, 6, 2, '2024-09-09 11:45:53', '0000-00-00 00:00:00');
+(14, 1, 2, 2, '2024-09-11 15:06:49', '0000-00-00 00:00:00'),
+(15, 2, 2, 2, '2024-09-11 15:56:01', '0000-00-00 00:00:00'),
+(16, 2, 7, 2, '2024-09-11 15:56:11', '0000-00-00 00:00:00'),
+(17, 3, 8, 2, '2024-09-11 16:49:01', '0000-00-00 00:00:00'),
+(18, 3, 7, 2, '2024-09-11 16:49:20', '0000-00-00 00:00:00'),
+(19, 3, 1, 2, '2024-09-11 16:49:27', '0000-00-00 00:00:00'),
+(20, 3, 2, 2, '2024-09-11 16:49:35', '0000-00-00 00:00:00'),
+(21, 3, 6, 2, '2024-09-11 16:49:44', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -158,7 +164,8 @@ CREATE TABLE `tb_compras` (
 
 INSERT INTO `tb_compras` (`id_compra`, `id_producto`, `nro_compra`, `fecha_compra`, `id_proveedor`, `comprobante`, `id_usuario`, `precio_compra`, `cantidad`, `fyh_creacion`, `fyh_actualizacion`) VALUES
 (1, 7, 1, '2024-09-07', 3, 'Factura 000001', 1, '78000', 20, '2024-09-07 10:31:11', '2024-09-07 10:31:58'),
-(2, 7, 2, '2024-09-07', 3, 'Factura 000002', 1, '78000', 20, '2024-09-07 10:46:41', '0000-00-00 00:00:00');
+(2, 7, 2, '2024-09-07', 3, 'Factura 000002', 1, '78000', 20, '2024-09-07 10:46:41', '0000-00-00 00:00:00'),
+(3, 8, 3, '2024-09-11', 4, 'Factura 000003', 1, '30000', 12, '2024-09-11 16:48:36', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -185,7 +192,8 @@ CREATE TABLE `tb_proveedores` (
 INSERT INTO `tb_proveedores` (`id_proveedor`, `nombre_proveedor`, `celular`, `telefono`, `empresa`, `email`, `direccion`, `fyh_creacion`, `fyh_actualizacion`) VALUES
 (1, 'Alejandro Restrepo', '3042068566', '2733187', 'Coca-Cola Company', 'alejandrorpo@gmail.com', 'calle 111 # 66 - 34', '2024-07-18 18:02:49', '2024-09-07 10:28:53'),
 (2, 'Wilson Paniagua', '3217774455', '2558800', 'Zenú S.A.S', 'wilson@gmail.com', 'Calle 121 # 55 - 88', '2024-09-07 10:29:28', '0000-00-00 00:00:00'),
-(3, 'Gloria Jiménez', '3136269867', '2733187', 'Diana S.A.S', 'gloria@gmail.com', 'Calle 67A # 11 - 22', '2024-09-07 10:30:10', '0000-00-00 00:00:00');
+(3, 'Gloria Jiménez', '3136269867', '2733187', 'Diana S.A.S', 'gloria@gmail.com', 'Calle 67A # 11 - 22', '2024-09-07 10:30:10', '0000-00-00 00:00:00'),
+(4, 'Ester Viloria', '3028370044', '4076622', 'Puppis S.A.S', 'esterpuppis@gmail.com', 'Carrera 44C # 77 - 91', '2024-09-11 16:46:41', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -261,7 +269,9 @@ CREATE TABLE `tb_ventas` (
 --
 
 INSERT INTO `tb_ventas` (`id_venta`, `nro_venta`, `id_cliente`, `total_pagado`, `fyh_creacion`, `fyh_actualizacion`) VALUES
-(1, 1, 1, 25600, '2024-09-09 12:18:04', '0000-00-00 00:00:00');
+(1, 1, 1, 8000, '2024-09-11 15:07:04', '0000-00-00 00:00:00'),
+(2, 2, 1, 16800, '2024-09-11 15:56:31', '0000-00-00 00:00:00'),
+(3, 3, 1, 39400, '2024-09-11 16:51:24', '0000-00-00 00:00:00');
 
 --
 -- Índices para tablas volcadas
@@ -339,13 +349,13 @@ ALTER TABLE `tb_ventas`
 -- AUTO_INCREMENT de la tabla `tb_almacen`
 --
 ALTER TABLE `tb_almacen`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_carrito`
 --
 ALTER TABLE `tb_carrito`
-  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_categorias`
@@ -363,13 +373,13 @@ ALTER TABLE `tb_clientes`
 -- AUTO_INCREMENT de la tabla `tb_compras`
 --
 ALTER TABLE `tb_compras`
-  MODIFY `id_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_compra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_proveedores`
 --
 ALTER TABLE `tb_proveedores`
-  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_roles`
@@ -387,7 +397,7 @@ ALTER TABLE `tb_usuarios`
 -- AUTO_INCREMENT de la tabla `tb_ventas`
 --
 ALTER TABLE `tb_ventas`
-  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
