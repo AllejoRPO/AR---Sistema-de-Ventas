@@ -56,7 +56,7 @@ Esta es una página de plantilla de la parte 1.
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Logo de la marca -->
         <a href="<?php echo $URL;?>" class="brand-link">
-            <img src="<?php echo $URL;?>/public/images/ar.png" alt="Foto perfil" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <img src="<?php echo $URL;?>/public/images/ar.jpg" alt="Foto perfil" class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light">Sistema de ventas AR</span>
         </a>
 
@@ -235,6 +235,25 @@ Esta es una página de plantilla de la parte 1.
                                 <a href="<?php echo $URL; ?>/ventas/create.php" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Realizar una venta</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Clientes -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-user-friends"></i>
+                            <p>
+                                Clientes
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?php echo $URL; ?>/clientes/index.php" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Listado de clientes</p>
                                 </a>
                             </li>
                         </ul>

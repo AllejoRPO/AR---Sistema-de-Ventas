@@ -14,6 +14,8 @@ include('app/controllers/categorias/listado_de_categorias.php'); // Incluye el c
 include('app/controllers/almacen/listado_de_productos.php'); // Incluye el controlador para listar los productos
 include('app/controllers/proveedores/listado_de_proveedores.php'); // Incluye el controlador para listar los proveedores
 include('app/controllers/compras/listado_de_compras.php'); // Incluye el controlador para listar las compras
+include('app/controllers/ventas/listado_de_ventas.php'); // Incluye el controlador para listar las ventas
+include('app/controllers/clientes/listado_de_clientes.php'); // Incluye el controlador para listar los clientes
 // Fin del bloque de inclusión del layout y controladores
 
 ?>
@@ -194,7 +196,7 @@ include('app/controllers/compras/listado_de_compras.php'); // Incluye el control
                 <!-- Inicio del bloque de tarjeta de proveedores -->
                 <div class="col-lg-3 col-6">
                     <!-- small card -->
-                    <div class="small-box bg-warning">
+                    <div class="small-box bg-gradient-navy">
                         <div class="inner">
                             <?php
                             // Contador de proveedores
@@ -223,7 +225,7 @@ include('app/controllers/compras/listado_de_compras.php'); // Incluye el control
                 <!-- Inicio del bloque de tarjeta de compras -->
                 <div class="col-lg-3 col-6">
                     <!-- small card -->
-                    <div class="small-box bg-orange">
+                    <div class="small-box bg-gradient-teal">
                         <div class="inner">
                             <?php
                             // Contador de compras
@@ -248,6 +250,64 @@ include('app/controllers/compras/listado_de_compras.php'); // Incluye el control
                     </div>
                 </div>
                 <!-- Fin del bloque de tarjeta de compras -->
+
+                <!-- Inicio del bloque de tarjeta de ventas -->
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-gradient-cyan">
+                        <div class="inner">
+                            <?php
+                            // Contador de ventas
+                            $contador_de_ventas = 0;
+                            foreach ($ventas_datos as $ventas_dato) {
+                                $contador_de_ventas = $contador_de_ventas + 1;
+                            }
+                            ?>
+                            <h3><?php echo $contador_de_ventas; ?></h3>
+                            <p>Ventas registradas</p>
+                        </div>
+                        <!-- Enlace para agregar una venta -->
+                        <a href="<?php echo $URL; ?>/ventas/create.php">
+                            <div class="icon">
+                                <i class="nav-icon fas fa-shopping-basket"></i>
+                            </div>
+                        </a>
+                        <!-- Enlace para más información -->
+                        <a href="<?php echo $URL; ?>/ventas" class="small-box-footer">
+                            Más información <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Fin del bloque de tarjeta de ventas -->
+
+                <!-- Inicio del bloque de tarjeta de clientes -->
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-olive">
+                        <div class="inner">
+                            <?php
+                            // Contador de clientes
+                            $contador_de_clientes = 0;
+                            foreach ($clientes_datos as $clientes_dato) {
+                                $contador_de_clientes = $contador_de_clientes + 1;
+                            }
+                            ?>
+                            <h3><?php echo $contador_de_clientes; ?></h3>
+                            <p>Clientes registrados</p>
+                        </div>
+                        <!-- Enlace para agregar un cliente -->
+                        <a href="<?php echo $URL; ?>/clientes">
+                            <div class="icon">
+                                <i class="nav-icon fas fa-user-friends"></i>
+                            </div>
+                        </a>
+                        <!-- Enlace para más información -->
+                        <a href="<?php echo $URL; ?>/clientes" class="small-box-footer">
+                            Más información <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Fin del bloque de tarjeta de clientes -->
 
             </div>
             <!-- Fin del bloque de tarjetas -->

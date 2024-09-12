@@ -138,7 +138,7 @@ $html = '
         <tr>
             <td><b>Fecha: </b>'.$fecha.'</td>
             <td></td>
-            <td><b>Cédula: </b>'.$nit_ci_cliente.'</td>
+            <td><b>Nit/CI: </b>'.$nit_ci_cliente.'</td>
         </tr>
         <tr>
         <td colspan="3"><b>Senor(es): </b>'.$nombre_cliente.'</td>
