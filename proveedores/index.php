@@ -87,7 +87,7 @@ if (isset($_SESSION["mensaje"])) {
                                 foreach ($proveedores_datos as $proveedores_dato){
                                     $id_proveedor = $proveedores_dato['id_proveedor'];
                                     $nombre_proveedor = $proveedores_dato['nombre_proveedor']; ?>
-                                    <tr>
+                                    <tr style="text-align: center">
                                         <td><center><?php echo $contador = $contador +1;?></center></td>
                                         <td><?php echo $nombre_proveedor;?></td>
                                         <td>

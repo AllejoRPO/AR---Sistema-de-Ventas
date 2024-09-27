@@ -83,7 +83,7 @@ if (isset($_SESSION["mensaje"])) {
                                 foreach ($clientes_datos as $clientes_dato) {
                                     $id_cliente = $clientes_dato['id_cliente'];
                                     ?>
-                                    <tr>
+                                    <tr style="text-align: center">
                                         <td><center><?php echo ++$contador; ?></center></td>
                                         <td><?php echo $clientes_dato['nombre_cliente']; ?></td>
                                         <td><?php echo $clientes_dato['nit_ci_cliente']; ?></td>

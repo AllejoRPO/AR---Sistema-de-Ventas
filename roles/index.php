@@ -83,7 +83,7 @@ if (isset($_SESSION["mensaje"])) {
                                 foreach ($roles_datos as $roles_dato){
                                     $id_rol = $roles_dato['id_rol'];
                                     ?>
-                                    <tr>
+                                    <tr style="text-align: center">
                                         <td><center><?php echo ++$contador; ?></center></td>
                                         <td><?php echo $roles_dato['rol']; ?></td>
                                         <td>
@@ -100,13 +100,6 @@ if (isset($_SESSION["mensaje"])) {
                                 }
                                 ?>
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th><center>Nro</center></th>
-                                    <th><center>Nombre del rol</center></th>
-                                    <th><center>Acciones</center></th>
-                                </tr>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->

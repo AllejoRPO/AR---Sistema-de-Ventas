@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3307
--- Tiempo de generación: 12-09-2024 a las 16:23:28
+-- Tiempo de generación: 27-09-2024 a las 20:55:33
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -54,7 +54,7 @@ INSERT INTO `tb_almacen` (`id_producto`, `codigo`, `nombre`, `descripcion`, `sto
 (2, 'P-00002', 'Salchicha viena parrillada', '160gr. Lata por 7 unidades', 54, 10, 100, '3300', '4000', '2024-07-15', '2024-07-15-16-30-19__salchicha-zenu-parrillada-160gr.png', 1, 8, '2024-07-15 16:30:19', '2024-07-17 14:44:07'),
 (6, 'P-00003', 'Arroz diana', '500gr. 1 bolsa', 46, 20, 70, '2800', '3400', '2024-07-18', '2024-07-18-08-01-52__arroz-diana-libra.png', 1, 2, '2024-07-18 08:01:52', '0000-00-00 00:00:00'),
 (7, 'P-00004', 'Arroz diana con fibra', '500gr. 1 bolsa', 34, 10, 30, '3900', '4400', '2024-09-07', '2024-09-07-10-28-11__arroz-diana-fibra-bolsa-x-500-gramos.png', 1, 2, '2024-09-07 10:28:11', '0000-00-00 00:00:00'),
-(8, 'P-00005', 'Whiskas gatos', 'Fillets Res. 85gr', 10, 10, 20, '2500', '2900', '2024-09-11', '2024-09-11-16-44-22__whiskas-res.png', 1, 7, '2024-09-11 16:44:22', '0000-00-00 00:00:00');
+(8, 'P-00005', 'Whiskas gatos', 'Fillets Res. 85gr', 8, 10, 20, '2500', '2900', '2024-09-11', '2024-09-11-16-44-22__whiskas-res.png', 1, 7, '2024-09-11 16:44:22', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -84,7 +84,8 @@ INSERT INTO `tb_carrito` (`id_carrito`, `nro_venta`, `id_producto`, `cantidad`, 
 (24, 3, 6, 2, '2024-09-11 20:27:43', '0000-00-00 00:00:00'),
 (25, 3, 7, 2, '2024-09-11 20:27:56', '0000-00-00 00:00:00'),
 (26, 3, 8, 2, '2024-09-11 20:28:04', '0000-00-00 00:00:00'),
-(27, 4, 2, 2, '2024-09-12 07:39:26', '0000-00-00 00:00:00');
+(27, 4, 2, 2, '2024-09-12 07:39:26', '0000-00-00 00:00:00'),
+(30, 5, 8, 2, '2024-09-13 19:04:50', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -138,7 +139,8 @@ CREATE TABLE `tb_clientes` (
 
 INSERT INTO `tb_clientes` (`id_cliente`, `nombre_cliente`, `nit_ci_cliente`, `celular_cliente`, `email_cliente`, `fyh_creacion`, `fyh_actualizacion`) VALUES
 (1, 'Pamela Molina', '1040518401', '3136980177', 'pamelapandita@gmail.com', '2024-09-07 18:19:30', '2024-09-07 18:19:30'),
-(2, 'Margarita Arango', '10385670911', '3234527766', 'margarita2010@gmail.com', '2024-09-12 08:18:43', '0000-00-00 00:00:00');
+(2, 'Margarita Arango', '10385670911', '3234527766', 'margarita2010@gmail.com', '2024-09-12 08:18:43', '0000-00-00 00:00:00'),
+(3, 'Dulce María', '1035227654', '3218889900', 'dulcemaria@gmail.com', '2024-09-13 19:05:22', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -274,7 +276,8 @@ INSERT INTO `tb_ventas` (`id_venta`, `nro_venta`, `id_cliente`, `total_pagado`, 
 (1, 1, 1, 8000, '2024-09-11 15:07:04', '0000-00-00 00:00:00'),
 (2, 2, 1, 16800, '2024-09-11 15:56:31', '0000-00-00 00:00:00'),
 (4, 3, 1, 39400, '2024-09-11 20:28:25', '0000-00-00 00:00:00'),
-(5, 4, 2, 8000, '2024-09-12 08:21:08', '0000-00-00 00:00:00');
+(5, 4, 2, 8000, '2024-09-12 08:21:08', '0000-00-00 00:00:00'),
+(7, 5, 3, 5800, '2024-09-13 19:05:34', '0000-00-00 00:00:00');
 
 --
 -- Índices para tablas volcadas
@@ -358,7 +361,7 @@ ALTER TABLE `tb_almacen`
 -- AUTO_INCREMENT de la tabla `tb_carrito`
 --
 ALTER TABLE `tb_carrito`
-  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_carrito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_categorias`
@@ -370,7 +373,7 @@ ALTER TABLE `tb_categorias`
 -- AUTO_INCREMENT de la tabla `tb_clientes`
 --
 ALTER TABLE `tb_clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tb_compras`
@@ -400,7 +403,7 @@ ALTER TABLE `tb_usuarios`
 -- AUTO_INCREMENT de la tabla `tb_ventas`
 --
 ALTER TABLE `tb_ventas`
-  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas

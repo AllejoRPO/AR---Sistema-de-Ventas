@@ -83,7 +83,7 @@ if (isset($_SESSION["mensaje"])) {
                                 foreach ($usuarios_datos as $usuarios_dato) {
                                     $id_usuario = $usuarios_dato['id_usuario'];
                                     ?>
-                                    <tr>
+                                    <tr style="text-align: center">
                                         <td><center><?php echo ++$contador; ?></center></td>
                                         <td><?php echo $usuarios_dato['nombres']; ?></td>
                                         <td><?php echo $usuarios_dato['email']; ?></td>
@@ -102,15 +102,6 @@ if (isset($_SESSION["mensaje"])) {
                                 }
                                 ?>
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th><center>Nro</center></th>
-                                    <th><center>Nombres</center></th>
-                                    <th><center>Email</center></th>
-                                    <th><center>Rol del usuario</center></th>
-                                    <th><center>Acciones</center></th>
-                                </tr>
-                                </tfoot>
                             </table>
                             <!-- Fin del bloque de tabla de usuarios -->
                         </div>

@@ -193,35 +193,6 @@ include('app/controllers/clientes/listado_de_clientes.php'); // Incluye el contr
                 </div>
                 <!-- Fin del bloque de tarjeta de productos -->
 
-                <!-- Inicio del bloque de tarjeta de proveedores -->
-                <div class="col-lg-3 col-6">
-                    <!-- small card -->
-                    <div class="small-box bg-gradient-navy">
-                        <div class="inner">
-                            <?php
-                            // Contador de proveedores
-                            $contador_de_proveedores = 0;
-                            foreach ($proveedores_datos as $proveedores_dato) {
-                                $contador_de_proveedores = $contador_de_proveedores + 1;
-                            }
-                            ?>
-                            <h3><?php echo $contador_de_proveedores; ?></h3>
-                            <p>Proveedores registrados</p>
-                        </div>
-                        <!-- Enlace para agregar proveedor -->
-                        <a href="<?php echo $URL; ?>/proveedores">
-                            <div class="icon">
-                                <i class="nav-icon fas fa-truck"></i>
-                            </div>
-                        </a>
-                        <!-- Enlace para más información -->
-                        <a href="<?php echo $URL; ?>/proveedores" class="small-box-footer">
-                            Más información <i class="fas fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- Fin del bloque de tarjeta de proveedores -->
-
                 <!-- Inicio del bloque de tarjeta de compras -->
                 <div class="col-lg-3 col-6">
                     <!-- small card -->
@@ -250,6 +221,35 @@ include('app/controllers/clientes/listado_de_clientes.php'); // Incluye el contr
                     </div>
                 </div>
                 <!-- Fin del bloque de tarjeta de compras -->
+
+                <!-- Inicio del bloque de tarjeta de proveedores -->
+                <div class="col-lg-3 col-6">
+                    <!-- small card -->
+                    <div class="small-box bg-gradient-navy">
+                        <div class="inner">
+                            <?php
+                            // Contador de proveedores
+                            $contador_de_proveedores = 0;
+                            foreach ($proveedores_datos as $proveedores_dato) {
+                                $contador_de_proveedores = $contador_de_proveedores + 1;
+                            }
+                            ?>
+                            <h3><?php echo $contador_de_proveedores; ?></h3>
+                            <p>Proveedores registrados</p>
+                        </div>
+                        <!-- Enlace para agregar proveedor -->
+                        <a href="<?php echo $URL; ?>/proveedores">
+                            <div class="icon">
+                                <i class="nav-icon fas fa-truck"></i>
+                            </div>
+                        </a>
+                        <!-- Enlace para más información -->
+                        <a href="<?php echo $URL; ?>/proveedores" class="small-box-footer">
+                            Más información <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Fin del bloque de tarjeta de proveedores -->
 
                 <!-- Inicio del bloque de tarjeta de ventas -->
                 <div class="col-lg-3 col-6">

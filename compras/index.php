@@ -84,7 +84,7 @@ if (isset($_SESSION["mensaje"])) {
                                     foreach ($compras_datos as $compras_dato) {
                                         $id_compra = $compras_dato['id_compra']; ?>
 
-                                        <tr>
+                                        <tr style="text-align: center">
                                             <td><?php echo $contador = $contador + 1; ?></td>
                                             <td><?php echo $compras_dato['nro_compra']; ?></td>
                                             <td>

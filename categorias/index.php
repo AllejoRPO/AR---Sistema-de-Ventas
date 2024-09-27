@@ -53,7 +53,7 @@ if (isset($_SESSION["mensaje"])) {
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-7">
-                    <div class="card-outline card-primary">
+                    <div class=" card card-outline card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Categorías registradas</h3>
                             <div class="card-tools">
@@ -82,7 +82,7 @@ if (isset($_SESSION["mensaje"])) {
                                 foreach ($categorias_datos as $categorias_dato){
                                     $id_categoria = $categorias_dato['id_categoria'];
                                     $nombre_categoria = $categorias_dato['nombre_categoria']; ?>
-                                    <tr>
+                                    <tr style="text-align: center">
                                         <td><center><?php echo $contador = $contador +1;?></center></td>
                                         <td><?php echo $categorias_dato['nombre_categoria'];?></td>
                                         <td>
@@ -152,13 +152,6 @@ if (isset($_SESSION["mensaje"])) {
                                 }
                                 ?>
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th><center>Nro</center></th>
-                                    <th><center>Nombre de la categoría</center></th>
-                                    <th><center>Acciones</center></th>
-                                </tr>
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->

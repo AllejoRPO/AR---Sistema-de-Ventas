@@ -83,7 +83,7 @@ if (isset($_SESSION["mensaje"])) {
                                     foreach ($productos_datos as $productos_dato) {
                                         $id_producto = $productos_dato['id_producto']; ?>
 
-                                        <tr>
+                                        <tr style="text-align: center">
                                             <td><?php echo ++$contador; ?></td>
                                             <td><?php echo $productos_dato['codigo']; ?></td>
                                             <td><?php echo $productos_dato['categoria']; ?></td>

@@ -84,7 +84,7 @@ if (isset($_SESSION["mensaje"])) {
                                         $contador = $contador + 1;
                                         ?>
 
-                                        <tr>
+                                        <tr style="text-align: center">
                                             <td style="text-align: center"><?php echo $contador; ?></td>
                                             <td style="text-align: center"><?php echo $ventas_dato['nro_venta']; ?></td>
                                             <td style="text-align: center">
